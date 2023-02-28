@@ -1,0 +1,46 @@
+body {
+    background-color: var(--background-color-light);
+    font-family: var(--main-text-font);
+    color: var(--main-text-color);
+}
+
+.img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}

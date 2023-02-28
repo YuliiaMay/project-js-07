@@ -1,2 +1,17 @@
-@import './common';
-@import './example';
+// utils
+@import './utils/_reset.scss';
+@import './utils/container';
+@import './utils/variables';
+@import './utils/visually-hidden';
+
+
+// components
+@import './components/header';
+@import './components/calendar';
+@import './components/filter';
+@import './components/gallery-page';
+@import './components/pagination';
+@import './components/footer';
+
+@import './components/read';
+@import './components/favorite';
