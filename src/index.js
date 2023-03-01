@@ -1,4 +1,4 @@
-import './sass/main.scss';
+import './sass/index.scss';
 import NewsApiService from './js/api/api-news';
 import WeatherApiService from './js/api/api-weather';
 import calendar from './js/main/calander';
