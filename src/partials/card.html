@@ -1,14 +1,21 @@
 <div class="card" id="card">
-  <img class="card__img" src="././images/photo_main.jpg" alt="" />
+  <div class="wrap__img">
+    <img class="card__img is-reading" src="././images/photo_main.jpg" alt="" />
+    <button type="button" class="card__favorite">
+      <span class="favorite__text">Add to favorite</span>
+      <svg class="icon-heart checked">
+        <use class="icon" href="././images/symbol.svg#icon-empty-heart"></use>
+      </svg>
+    </button>
+  </div>
+
   <h2 class="card__title">title</h2>
   <p class="card__description">description</p>
   <div class="card__footer">
-    <span class="card__date">date</span>
+    <span class="card__date">20/02/2021</span>
     <a class="card__ref" href="#">Read more</a>
   </div>
-  <div class="wrap">
-    <button type="button" class="card__favorite">Add to favorite</button>
-  </div>
-  <div class="categories"></div>
-  <div class="reading"></div>
+
+  <div class="categories">categories</div>
+  <div class="read">Have read</div>
 </div>
