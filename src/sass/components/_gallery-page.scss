@@ -1,5 +1,5 @@
 .news__container {
-//   background-color: rgb(183, 135, 229);
+  //   background-color: rgb(183, 135, 229);
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
@@ -7,16 +7,17 @@
   flex-direction: row-reverse;
 }
 
-.card {
-  width: 395px;
-  /* height: 675px; */
-  background-color: aqua;
-}
+// .card {
+//   width: 395px;
+//   /* height: 675px; */
+//   background-color: aqua;
+// }
 
 .news__container--weather {
+  position: relative;
   width: 395px;
+  height: 675px;
   background-color: brown;
-  font-size: 72px;
   text-align: center;
 }
 
