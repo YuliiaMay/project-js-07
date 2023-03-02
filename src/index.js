@@ -17,3 +17,4 @@ import './js/gallery';
 import './js/mobile-menu';
 import './js/theme';
 import './js/search';
+import './js/footer';
