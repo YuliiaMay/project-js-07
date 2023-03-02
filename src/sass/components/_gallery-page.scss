@@ -1,16 +1,5 @@
-body {
-  width: 1300px;
-}
-
-.render__btn {
-  display: block;
-  margin: 0 auto;
-  font-size: 24px;
-  margin-bottom: 50px;
-}
-
 .news__container {
-  background-color: rgb(183, 135, 229);
+//   background-color: rgb(183, 135, 229);
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
@@ -18,77 +7,78 @@ body {
   flex-direction: row-reverse;
 }
 
-.news__container--card {
+.card {
   width: 395px;
   /* height: 675px; */
   background-color: aqua;
 }
 
 .news__container--weather {
+  width: 395px;
   background-color: brown;
   font-size: 72px;
   text-align: center;
 }
 
-.news__img {
-  width: 395px;
-  height: 395px;
-  margin-bottom: 20px;
-}
+// .news__img {
+//   width: 395px;
+//   height: 395px;
+//   margin-bottom: 20px;
+// }
 
-.news__info {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  justify-content: space-between;
-}
+// .news__info {
+//   display: flex;
+//   padding: 0;
+//   margin: 0;
+//   justify-content: space-between;
+// }
 
-.news__title {
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 44px;
-  letter-spacing: -0.01em;
-  margin: 0 0 20px 0;
-  color: #111321;
-  padding: 0 41px 0 17px;
-}
+// .news__title {
+//   font-family: "Manrope";
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 32px;
+//   line-height: 44px;
+//   letter-spacing: -0.01em;
+//   margin: 0 0 20px 0;
+//   color: #111321;
+//   padding: 0 41px 0 17px;
+// }
 
-.news__inform {
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  margin: 0 0 20px 0;
-  padding: 0 41px 0 17px;
-  color: #111321;
-}
+// .news__inform {
+//   font-family: "Manrope";
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 22px;
+//   margin: 0 0 20px 0;
+//   padding: 0 41px 0 17px;
+//   color: #111321;
+// }
 
-.news__info--data {
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  padding: 0;
-  margin: 0;
+// .news__info--data {
+//   font-family: "Manrope";
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 22px;
+//   padding: 0;
+//   margin: 0;
 
-  text-align: right;
+//   text-align: right;
 
-  color: #a8a8a8;
-}
+//   color: #a8a8a8;
+// }
 
-.news__info--more {
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  padding: 0;
-  padding-right: 26px;
-  margin: 0;
+// .news__info--more {
+//   font-family: "Manrope";
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 22px;
+//   padding: 0;
+//   padding-right: 26px;
+//   margin: 0;
 
-  color: #4440f7;
-}
+//   color: #4440f7;
+// }
