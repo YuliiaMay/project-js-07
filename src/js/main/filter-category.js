@@ -7,9 +7,19 @@ const key = '1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 const categoryUrl = '/content/section-list.json';
 const searchUrl = '/articlesearch.json';
 
-const categoriesArray = [];
+let categoriesArray = [];
 
 const keyLocalStorage = 'selected-categories';
+
+setDefaultParams();
+
+/*заміникти на правильну назву ключа, правильну назву взяти у того хто робить календар!
+видалити значення з 18 по 20 радок!
+*/
+const selectedDateKey = 'selected-date';
+let date = new Date('December 25, 2022 23:15:30');
+let day = date.getTime();
+localStorage.setItem(selectedDateKey, day);
 
 const filtersContainer = document.querySelector('.category__filter-container');
 filtersContainer.addEventListener('click', onFilterCategories);
@@ -17,9 +27,32 @@ filtersContainer.addEventListener('click', onFilterCategories);
 function onFilterCategories(event) {
   let categoryName = event.target.value;
 
-  categoriesArray.push(categoryName);
-  console.log(categoryName);
+  event.target.classList.toggle('active');
+
+  const hasCategory = categoriesArray.includes(categoryName);
+
+  if (!hasCategory) {
+    categoriesArray.push(categoryName);
+  } else {
+    const categoryIndex = categoriesArray.indexOf(categoryName);
+    categoriesArray.splice(categoryIndex, 1);
+  }
+
   localStorage.setItem(keyLocalStorage, JSON.stringify(categoriesArray));
+  filterCategories()
+    .then(docs => {
+      /*тут будем викликати функції побудови карточок!
+      якщо той хто будує карточки поставить цикл в той файл де буде побудова карточок, 
+      то ми тут маєм передати докс який в функцію яка в консоль лозі на 47
+      */
+      console.log(docs);
+    })
+    .catch(error => {
+      /*в цьому місці поставити картинку заглушку якщо нічого не знайдено по категорії!
+      після того як буде верстка!
+      */
+      console.log(error);
+    });
 }
 
 function getCategories() {
@@ -32,27 +65,72 @@ function getCategories() {
   });
 }
 
-getCategories()
-  .then(categories => {
-    const categriesButtons = categories.slice(0, 6);
-    const categoriesSelect = categories.slice(6);
-
-    categriesButtons.map(button => {
-      renderButtons(button);
-    });
-    renderSelect(categoriesSelect);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
 function filterCategories() {
-  const searchWord = JSON.parse(localStorage.getItem(keyLocalStorage)).join(
-    ', '
-  );
-  const url = `${baseUrlV2}${searchUrl}?api-key=${key}&fq=news_desk:(${searchWord})`;
-  return axios.get(url);
-}
-filterCategories();
+  const categoriesValue = JSON.parse(localStorage.getItem(keyLocalStorage));
+  if (!categoriesValue) {
+    return;
+  }
+  const selectedDate = localStorage.getItem(selectedDateKey);
 
-//https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=yourkey&fq=news_desk:("Sports", "Foreign")
+  let searchWord;
+  let params;
+
+  if (selectedDate) {
+    params = `&pub_date=${selectedDate}`;
+  }
+
+  if (categoriesValue.length !== 0) {
+    searchWord = categoriesValue.join(', ');
+  } else {
+    searchWord = 'Business';
+  }
+  const url = `${baseUrlV2}${searchUrl}?api-key=${key}&fq=news_desk:(${searchWord})${params}`;
+  return axios.get(url).then(response => {
+    if (response.status !== 200 || response.data.response.docs.length === 0) {
+      throw new Error(response.status);
+    }
+    return response.data.response.docs;
+  });
+}
+
+function setDefaultParams() {
+  getCategories()
+    .then(categories => {
+      const categriesButtons = categories.slice(0, 6);
+      const categoriesSelect = categories.slice(6);
+
+      categriesButtons.map(button => {
+        renderButtons(button);
+
+        if (categoriesValue) {
+          let curentCategories = categoriesValue.includes(button.display_name);
+          if (curentCategories) {
+            const buttonName = document.querySelector(
+              `[data-name="${button.display_name}"]`
+            );
+            buttonName.classList.add('active');
+          }
+        }
+      });
+      renderSelect(categoriesSelect);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+  const categoriesValue = JSON.parse(localStorage.getItem(keyLocalStorage));
+
+  if (categoriesValue && categoriesValue.length !== 0) {
+    searchWord = categoriesValue.join(', ');
+    categoriesArray = [...categoriesValue];
+
+    const url = `${baseUrlV2}${searchUrl}?api-key=${key}&fq=news_desk:(${searchWord})`;
+
+    return axios.get(url).then(response => {
+      if (response.status !== 200 || response.data.response.docs.length === 0) {
+        throw new Error(response.status);
+      }
+      return response.data.response.docs;
+    });
+  }
+}
