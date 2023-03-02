@@ -12,11 +12,16 @@
         margin-right: 0;
         padding-left: 16px;
         padding-right: 16px;
+        width: auto;
+
+    @media screen and (min-width: 480px) {
+        width: 480px;
+    }
  
 
     // tablet
     @media screen and (min-width: 768px) {
-        max-width: 768px
+        width: 768px
     }
 
     // desktop

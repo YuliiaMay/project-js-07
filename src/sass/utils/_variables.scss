@@ -3,7 +3,8 @@ $main-text-color: #111321;      //* for light theme: logo + menu + cards text co
 $light-text-color: #FFFFFF;     //* weather card text + article card teg +  *//
 $gray-text-color: #F4F4F4;      //* for dark theme: logo + menu + cards text color *//
 $blue-text-color: #4440F6;      //* for light theme: read more + category-btn *//
-$dark-switch-color: #4B48DB;    //* for theme *//
+$light-switch-color: #4B48DB;    //* for light theme *//
+$dark-switch-color: #5F6775;    //* for dark theme *//
 $have-read-tag: #00B912;        //* for read articles in the read-page*//
 
 /*background-color*/
@@ -15,8 +16,8 @@ $background-color-accent: #4440F6;
 
 /*border*/
 $border-color: #4B48DB;
-$line-color-dark: #F4F4F4;
-$line-color-dark: #000000;
+$line-color-light: #F4F4F4;
+$line-color-dark: #0000003d;
 $input-border: #111321;
 
 
