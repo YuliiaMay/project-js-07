@@ -5,8 +5,8 @@
 <header class="header">
   <div class="container header-container">
     <a href="/src/index.html" class="logo">News</a>
-    <nav>
-      <ul class="navbar">
+    <nav class="nav">
+      <ul class="nav__list">
         <li class="navbar__item">
           <a href="/src/index.html" class="navbar__link navbar__link--current"
             >Home</a
@@ -20,24 +20,55 @@
         </li>
       </ul>
     </nav>
-
+<!-- 
     <form class="search-field" id="form-field">
-      <button class="search-field__btn" type="submit" id="form-btn">
-        <svg class="search__icon" width="16" height="15">
-          <use href="/src/images/symbol.svg#icon-search"></use>
+    </form> -->
+
+          <!-- <button class="search-field__btn" type="submit" id="form-btn"> -->
+      <!-- </button> -->
+
+      <label class="search__label">
+        <input
+          class="search__input"
+          name="searchQuery"
+          type="text"
+          id="search-field__input"
+          placeholder="Search"
+        />
+
+        <button class="search__btn">
+          <svg class="search__btn-icon" width="28" height="28">
+            <use href="/src/images/icons.svg#search"></use>
+          </svg>
+        </button>
+      </label>
+
+
+    <div class="theme-switch">
+      <!-- <label class="theme-switch__label">
+        <input class="theme-switch__input" type="checkbox" data-theme="">
+        <span class="theme-switch__slider"></span>
+      </label> -->
+
+      <span class="theme-switch__light-on">Light</span>
+      <!-- <svg class="theme-switch__icon-sun" width=""28 height="28">
+        <use href="/src/images/icons.svg#sun"></use>
+      </svg> -->
+      <div class="theme-switch__slider-conteiner">
+        <svg class="theme-switch__icon-slider" width="16" height="16">
+          <use href="/src/images/icons.svg#icon-round"></use>
         </svg>
-      </button>
-      <input
-        name="searchQuery"
-        class="page-header__search-input"
-        type="text"
-        id="search-field__input"
-        placeholder="Search"
-      />
-    </form>
+      </div>
+      <span class="theme-switch__dark-on">Dark</span>
+      <!-- <svg class="theme-switch__icon-moon" width=""28 height="28">
+        <use href="/src/images/icons.svg#moon"></use>
+      </svg> -->
+
+
+    </div>
 
     <!-- Mobile__Btn -->
-    <button
+    <!-- <button
       type="button"
       class="mobile-button"
       id="js-open-menu"
@@ -46,6 +77,6 @@
       <svg class="icon" width="24" height="24">
         <use href="/src/images/symbol.svg#icon-search"></use>
       </svg>
-    </button>
+    </button> -->
   </div>
 </header>

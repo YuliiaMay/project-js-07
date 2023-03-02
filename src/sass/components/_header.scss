@@ -1,21 +1,23 @@
-.header {
-  min-height: 81px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
+// .header {
+//   min-height: 81px;
+//   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+// }
 
 .header-container {
-  align-items: center;
+  align-items: baseline;
   display: flex;
-  margin-left: 0;
+  // margin-left: 0;
 }
 
 .logo {
-  padding: 24px 0;
+  // padding: 24px 0;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.38;
   display: inline-block;
   color: #111321;
+
+  margin-right: 102px;
 }
 
 @media screen and (min-width: 768px) {
@@ -35,25 +37,36 @@
   }
 }
 
-.navbar {
-  display: none;
+.nav {
+  margin-right: 147px;
+
 }
 
-@media screen and (min-width: 768px) {
-  .navbar {
-    gap: 40px;
-    margin-left: 48px;
-    display: flex;
-    margin-right: 8px;
-  }
+.nav__list {
+  display: flex;
+  gap: 69px;
 }
 
-@media screen and (min-width: 1280px) {
-  .navbar {
-    gap: 69px;
-    margin-left: 102px;
-  }
-}
+// .navbar {
+//   display: none;
+// }
+
+// @media screen and (min-width: 768px) {
+//   .navbar {
+//     gap: 40px;
+//     margin-left: 48px;
+//     display: flex;
+//     margin-right: 8px;
+//   }
+// }
+
+// @media screen and (min-width: 1280px) {
+//   .navbar {
+//     gap: 69px;
+//     margin-right: 147px;
+//     margin-left: 0;
+//   }
+// }
 
 .navbar__item {
   padding-top: 48px;
@@ -120,3 +133,61 @@
     margin: 51px auto 31px;
   }
 }
+
+
+
+
+.search__label {
+  display: block;
+  position: relative;
+  margin-right: 147px;
+}
+
+.search__input {
+  width: 288px;
+  height: 31px;
+  border-radius: 24px;
+  padding-left: 48px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: $main-text-color;
+  // opacity: 0.4;
+  font-family: $second-text-font;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: calc(14/24);
+  border: 1px solid $input-border;
+
+    &:hover,
+    &:focus {
+      border-color: 2px solid $input-border;
+    }
+}
+
+.search__btn {
+  display: inline;
+  border: none;
+  background-color: transparent;
+
+  position: absolute;
+  transform: translate(-45%, 0);
+  left: 10px;
+  top: 9px;
+}
+
+
+
+
+// ------------------------
+.theme-switch {
+  display: flex;
+  gap: 12px;
+}
+
+.theme-switch__slider-conteiner {
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  width: 40px;
+  height: 20px;
+}
+
