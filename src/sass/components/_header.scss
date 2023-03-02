@@ -3,8 +3,8 @@
 }
 
 .header-container {
-  
   display: flex;
+  gap: 147px;
   align-items: baseline;
   justify-content: space-between;
   margin-right: 0;
@@ -18,7 +18,7 @@
   display: inline-block;
   color: #111321;
 
-  margin-right: 102px;
+  // margin-right: 102px;
 }
 
 @media screen and (min-width: 768px) {
@@ -38,10 +38,10 @@
   }
 }
 
-.nav {
-  margin-right: 147px;
+// .nav {
+//   margin-right: 147px;
 
-}
+// }
 
 .nav__list {
   display: flex;
@@ -144,7 +144,7 @@
 .search__label {
   display: block;
   position: relative;
-  margin-right: 147px;
+  // margin-right: 147px;
 }
 
 .search__input {
