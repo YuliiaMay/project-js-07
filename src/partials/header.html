@@ -1,4 +1,51 @@
-<a href="/src/index.html">home</a>
+<!-- <a href="/src/index.html">home</a>
 <a href="/src/favorite.html">favorite</a>
-<a href="/src/read.html">read</a>
+<a href="/src/read.html">read</a> -->
 
+<header class="header">
+  <div class="container header-container">
+    <a href="/src/index.html" class="logo">News</a>
+    <nav>
+      <ul class="navbar">
+        <li class="navbar__item">
+          <a href="/src/index.html" class="navbar__link navbar__link--current"
+            >Home</a
+          >
+        </li>
+        <li class="navbar__item">
+          <a href="/src/favorite.html" class="navbar__link">Favorite</a>
+        </li>
+        <li class="navbar__item">
+          <a href="/src/read.html" class="navbar__link">Read</a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search-field" id="form-field">
+      <button class="search-field__btn" type="submit" id="form-btn">
+        <svg class="search__icon" width="16" height="15">
+          <use href="/src/images/symbol.svg#icon-search"></use>
+        </svg>
+      </button>
+      <input
+        name="searchQuery"
+        class="page-header__search-input"
+        type="text"
+        id="search-field__input"
+        placeholder="Search"
+      />
+    </form>
+
+    <!-- Mobile__Btn -->
+    <button
+      type="button"
+      class="mobile-button"
+      id="js-open-menu"
+      aria-expanded="false"
+    >
+      <svg class="icon" width="24" height="24">
+        <use href="/src/images/symbol.svg#icon-search"></use>
+      </svg>
+    </button>
+  </div>
+</header>
