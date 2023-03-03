@@ -6,9 +6,7 @@ import './js/main/filter-category.js';
 import './js/main/filter-data';
 import './js/main/pagination';
 
-import './js/render/render-favorite';
 import './js/render/render-gallery';
-import './js/render/render-read';
 
 import './js/storage/add-to-favorite';
 import './js/storage/add-to-read';
