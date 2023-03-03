@@ -2,24 +2,24 @@
   position: relative;
   width: 395px;
   height: 675px;
+  // border: 1px solid green;
 }
 
 .wrap__img {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .card__img {
   display: block;
   width: 395px;
   height: 395px;
-
   object-fit: fill;
 }
 
 .wrap,
 .card__title,
-.card__description,
-.card__footer {
+.card__description {
   margin-bottom: 20px;
 }
 
@@ -148,4 +148,12 @@
 
 .icon-heart.checked {
   fill: #4b48da;
+}
+
+.news__card {
+  // border: 1px solid rgb(207, 128, 18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px;
 }

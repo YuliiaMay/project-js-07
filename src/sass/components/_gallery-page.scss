@@ -2,6 +2,7 @@
   //   background-color: rgb(183, 135, 229);
   display: flex;
   gap: 32px;
+  row-gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row-reverse;
@@ -14,7 +15,7 @@
 // }
 
 .news__container--weather {
-  position: relative;
+  // position: relative;
   width: 395px;
   height: 675px;
   background-color: brown;
