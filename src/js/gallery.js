@@ -26,7 +26,7 @@ function fetchNews(dataNews) {
                   <button type="button" class="card__favorite">
                     <span class="favorite__text">Add to favorite</span>
                     <svg class="icon-heart checked">
-                      <use class="icon" href="././images/icons.svg#icon-empty-heart"></use>
+                      <use class="icon" href="././images/icons.svg#empty-heart"></use>
                     </svg>
                   </button>
                 </div>
