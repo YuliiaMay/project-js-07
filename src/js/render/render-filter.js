@@ -9,6 +9,7 @@ function renderButtons(category) {
 
 function renderSelect(categories) {
   let listOptions = [];
+  
   const listSelects = [];
 
   categories.map(category => {

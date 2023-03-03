@@ -17,11 +17,14 @@ setDefaultParams();
 видалити значення з 18 по 20 радок!
 */
 const selectedDateKey = 'selected-date';
+
 let date = new Date('December 25, 2022 23:15:30');
 let day = date.getTime();
+
 localStorage.setItem(selectedDateKey, day);
 
 const filtersContainer = document.querySelector('.category__filter-container');
+
 filtersContainer.addEventListener('click', onFilterCategories);
 
 function onFilterCategories(event) {
