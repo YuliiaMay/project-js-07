@@ -2,7 +2,7 @@ import './sass/index.scss';
 import './js/api/api-news';
 import './js/api/api-weather';
 import './js/main/calander';
-import './js/main/filter-category.js';
+// import './js/main/filter-category.js';
 import './js/main/filter-data';
 import './js/main/pagination';
 
