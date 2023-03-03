@@ -3,7 +3,6 @@ import axios from 'axios';
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
 
 const newsContainer = document.querySelector('.news__container');
-const fetchBtn = document.querySelector('.render__btn');
 
 fetchPopularNews();
 
@@ -12,14 +11,12 @@ async function fetchPopularNews() {
   fetchNews(dataNews);
 }
 
-
 function fetchNews(dataNews) {
   let dataNewsArr = dataNews.data.results;
 
   const card = dataNewsArr
     .map(({ media, source, title, abstract, published_date, url, section }) => {
-      let src = media.map(media => media['media-metadata'][2].url);
-
+      let src = media.length ? media.map(media => media['media-metadata'][2].url) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvFBa3G11OUBYADP7ouSBgwiiRzSYorF4dfg&usqp=CAU';
       return `<div class="card" id="card">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${src}" alt="${source}" />
