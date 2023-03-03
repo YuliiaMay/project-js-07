@@ -15,11 +15,11 @@ async function fetchPopularNews() {
 
 function fetchNews(dataNews) {
   let dataNewsArr = dataNews.data.results;
-  console.log(dataNewsArr);
+
   const card = dataNewsArr
     .map(({ media, source, title, abstract, published_date, url, section }) => {
       let src = media.map(media => media['media-metadata'][2].url);
-      console.log(src);
+
       return `<div class="card" id="card">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${src}" alt="${source}" />
@@ -47,4 +47,9 @@ function fetchNews(dataNews) {
 })
     .join('');
   newsContainer.insertAdjacentHTML('beforeend', card);
+
+  return card;
 }
+
+
+export {fetchNews, fetchPopularNews};
