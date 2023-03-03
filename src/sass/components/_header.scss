@@ -114,29 +114,34 @@
   color: #4440f6;
 }
 
+
+
+
+
 // .search-field {
 //   height: 31px;
 //   background-color: #0000;
 //   margin-left: auto;
 //   display: flex;
-// }
 
-// @media screen and (min-width: 768px) {
-//   .search-field {
+//   @media screen and (min-width: 768px) {
 //     border: 1px solid var(--light-theme-main-color);
 //     width: 213px;
 //     border-radius: 20px;
 //     margin-top: 44px;
 //     margin-bottom: 31px;
-//   }
-// }
+//   }  
 
-// @media screen and (min-width: 1280px) {
-//   .search-field {
+//     @media screen and (min-width: 1280px) {
 //     width: 288px;
 //     margin: 51px auto 31px;
 //   }
 // }
+
+
+
+
+
 
 
 
@@ -150,7 +155,7 @@
 .search__input {
   width: 288px;
   height: 31px;
-  border-radius: 24px;
+  border-radius: 20px;
   padding-left: 48px;
   padding-top: 6px;
   padding-bottom: 6px;
