@@ -1,0 +1,20 @@
+// ------------------------
+.theme-switch {
+  display: flex;
+  gap: 12px;
+}
+
+.theme-switch__slider-conteiner {
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  width: 40px;
+  height: 20px;
+}
+
+.theme-switch__light-on {
+    color: $light-switch-color;
+}
+
+.theme-switch__dark-on {
+    color: $dark-switch-color;
+}

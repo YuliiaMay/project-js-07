@@ -1,0 +1,159 @@
+.card {
+  position: relative;
+  width: 395px;
+  height: 675px;
+  // border: 1px solid green;
+}
+
+.wrap__img {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.card__img {
+  display: block;
+  width: 395px;
+  height: 395px;
+  object-fit: fill;
+}
+
+.wrap,
+.card__title,
+.card__description {
+  margin-bottom: 20px;
+}
+
+.categories,
+.read,
+.card__favorite {
+  position: absolute;
+}
+
+.card__title {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.37;
+  letter-spacing: -0.01em;
+
+  color: #111321;
+}
+
+.card__description {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.37;
+
+  color: #111321;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__date {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.37;
+
+  text-align: right;
+
+  color: #a8a8a8;
+}
+
+.card__ref {
+  margin-right: 26px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.37;
+
+  color: #4440f7;
+}
+
+.categories {
+  display: block;
+  padding: 4px 8px;
+
+  background: rgba(68, 64, 247, 0.7);
+  border-radius: 0px 4px 4px 0px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+
+  top: 40px;
+  left: 0;
+}
+
+.read {
+  right: 31px;
+  top: 16px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #00b912;
+}
+
+.card__img.is-reading {
+  opacity: 80%;
+}
+
+.card__favorite {
+  display: flex;
+  align-items: center;
+
+  right: 10px;
+  bottom: 10px;
+
+  border-radius: 20px;
+  border: none;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+
+  color: #111321;
+}
+
+.favorite__text {
+  padding: 6px 3px 6px 12px;
+}
+
+.icon-heart {
+  fill: #ffffff;
+  width: 16px;
+  height: 16px;
+  padding-right: 6px;
+}
+
+.icon-heart.checked {
+  fill: #4b48da;
+}
+
+.news__card {
+  // border: 1px solid rgb(207, 128, 18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px;
+}

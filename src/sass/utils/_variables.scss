@@ -1,32 +1,76 @@
+/*font color*/
+$main-text-color: #111321;      //* for light theme: logo + menu + cards text color *//
+$light-text-color: #FFFFFF;     //* weather card text + article card teg +  *//
+$gray-text-color: #F4F4F4;      //* for dark theme: logo + menu + cards text color *//
+$blue-text-color: #4440F6;      //* for light theme: read more + category-btn *//
+$light-switch-color: #4B48DB;    //* for light theme *//
+$dark-switch-color: #5F6775;    //* for dark theme *//
+$have-read-tag: #00B912;        //* for read articles in the read-page*//
 
-:root {
-    --main-text-color: #111321;
-    --light-text-color: #FFFFFF;
-    --gray-text-color: #F4F4F4;
-    --blue-text-color: #4440F6;
-    --light-switch-color: #111321;
-    --dark-switch-color: #4B48DB;
+/*background-color*/
+$background-color-dark: #2E2E2E;
+$background-color-light: #ffffff;
+$background-color-footer: #A8A8A8;
+$background-color-accent: #4440F6;
 
 
-    /*background-color*/
-    --background-color-dark: #2E2E2E;
-    --background-color-light: #ffffff;
-    --background-color-footer: #A8A8A8;
-    --background-color-accent: #4440F6;
+/*border*/
+$border-color: #4B48DB;
+$line-color-light: #F4F4F4;
+$line-color-dark: #0000003d;
+$input-border: #111321;
 
 
-    /*border*/
-    --border-color: #4B48DB;
-    --line-color-dark: #F4F4F4;
-    --line-color-dark: #000000;
+/*font*/
+$main-text-font: Manrope, sans-serif;
+$weather-text-font: Roboto, sans-serif;    //* weather card *//
+$second-text-font: Poppins, sans-serif;
+
+/*переходи*/
+$transition-duration: 300ms;
+$transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+/*кнопки*/
+$bgr-color-active-btn: #4B48DB;
+$bgr-color-active-btn: transparant;
+$border-color-btn: #4440F6;
+$text-color-btn: #FFFFFF;
+$text-color-active-btn: #4440F6;
+$border-radius-btn: 24px;
+$pudding-btn: 8px, 21px, 8px, 21px;
+
+
+
+
+// :root {
+//     --main-text-color: #111321;
+//     --light-text-color: #FFFFFF;
+//     --gray-text-color: #F4F4F4;
+//     --blue-text-color: #4440F6;
+//     --light-switch-color: #111321;
+//     --dark-switch-color: #4B48DB;
+
+
+//     /*background-color*/
+//     --background-color-dark: #2E2E2E;
+//     --background-color-light: #ffffff;
+//     --background-color-footer: #A8A8A8;
+//     --background-color-accent: #4440F6;
+
+
+//     /*border*/
+//     --border-color: #4B48DB;
+//     --line-color-dark: #F4F4F4;
+//     --line-color-dark: #000000;
     
 
-    /*font*/
-    --main-text-font: Manrope, sans-serif;
-    --weather-text-font: Roboto, sans-serif;
-    --second-text-font: Poppins, sans-serif;
+//     /*font*/
+//     --main-text-font: Manrope, sans-serif;
+//     --weather-text-font: Roboto, sans-serif;
+//     --second-text-font: Poppins, sans-serif;
 
-    /*переходи*/
-    --transition-duration: 300ms;
-    --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+//     /*переходи*/
+//     --transition-duration: 300ms;
+//     --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// }
