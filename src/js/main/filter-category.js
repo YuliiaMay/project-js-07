@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { renderButtons, renderSelect } from '../render/render-filter';
+import { renderCategoryCard } from '../gallery';
 
 const baseUrlV2 = 'https://api.nytimes.com/svc/search/v2';
 const baseUrlV3 = 'https://api.nytimes.com/svc/news/v3';
@@ -44,11 +45,7 @@ function onFilterCategories(event) {
   localStorage.setItem(keyLocalStorage, JSON.stringify(categoriesArray));
   filterCategories()
     .then(docs => {
-      /*тут будем викликати функції побудови карточок!
-      якщо той хто будує карточки поставить цикл в той файл де буде побудова карточок, 
-      то ми тут маєм передати докс який в функцію яка в консоль лозі на 47
-      */
-      console.log(docs);
+      renderCategoryCard(docs);
     })
     .catch(error => {
       /*в цьому місці поставити картинку заглушку якщо нічого не знайдено по категорії!
@@ -104,21 +101,31 @@ function setDefaultParams() {
 
       categriesButtons.map(button => {
         renderButtons(button);
+        //щоб залишити активні кнопки при перезагрузці
 
-        if (categoriesValue) {
-          let curentCategories = categoriesValue.includes(button.display_name);
-          if (curentCategories) {
-            const buttonName = document.querySelector(
-              `[data-name="${button.display_name}"]`
-            );
-            buttonName.classList.add('active');
-          }
-        }
+        // if (categoriesValue) {
+        //   let curentCategories = categoriesValue.includes(button.display_name);
+        //   if (curentCategories) {
+        //     const buttonName = document.querySelector(
+        //       `[data-name="${button.display_name}"]`
+        //     );
+        //     buttonName.classList.add('active');
+        //   }
+        // }
       });
-      renderSelect(categoriesSelect);
+      renderSelect(categoriesSelect, 'desctop-select');
+
+      //побудова селектів для мобільного!
+
+      renderSelect(categories, 'mobile-select');
     })
     .catch(error => {
       console.log(error);
+    })
+    .finally(() => {
+      //очищення локал стореджа якщо не потрібно залишати активні кнопки при перезагрузці
+      localStorage.removeItem(keyLocalStorage);
+      categoriesArray = [];
     });
 
   const categoriesValue = JSON.parse(localStorage.getItem(keyLocalStorage));

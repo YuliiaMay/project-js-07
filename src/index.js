@@ -7,10 +7,9 @@ import './js/loader';
 import './js/adv';
 import './js/nav';
 import './js/main/calander';
-// import './js/main/filter-category.js';
+import './js/main/filter-category.js';
 import './js/main/filter-data';
 import './js/main/pagination';
-
 
 
 import './js/render/render-gallery';
