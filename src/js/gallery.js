@@ -3,7 +3,6 @@ import axios from 'axios';
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
 
 const newsContainer = document.querySelector('.news__container');
-const fetchBtn = document.querySelector('.render__btn');
 
 fetchPopularNews();
 
@@ -12,21 +11,21 @@ async function fetchPopularNews() {
   fetchNews(dataNews);
 }
 
-
 function fetchNews(dataNews) {
   let dataNewsArr = dataNews.data.results;
-
   const card = dataNewsArr
     .map(({ media, source, title, abstract, published_date, url, section }) => {
-      let src = media.map(media => media['media-metadata'][2].url);
-
+      let src = media.length ? media.map(media => media['media-metadata'][2].url) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvFBa3G11OUBYADP7ouSBgwiiRzSYorF4dfg&usqp=CAU';
       return `<div class="card" id="card">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${src}" alt="${source}" />
                   <button type="button" class="card__favorite">
-                    <span class="favorite__text">Add to favorite</span>
-                    <svg class="icon-heart checked">
-                      <use class="icon" href="././images/icons.svg#empty-heart"></use>
+                    Add to favorite
+                    <svg class="icon-heart unchecked">
+                      <use class="icon" href="/icons.adfc4680.svg#empty-heart"></use>
+                    </svg>
+                    <svg class="icon-heart is-hidden-btn">
+                      <use class="icon" href="/icons.adfc4680.svg#fill-heart"></use>
                     </svg>
                   </button>
                 </div>
