@@ -1,0 +1,51 @@
+.banner {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.banner__zsu {
+    width: 100%;
+}
+
+.banner__button {
+    position: inherit;
+    z-index: 20;
+    background-color: transparent;
+    right: 5px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+
+    @media screen and (min-width: 768px) {
+        right: 10px;
+        top: 10px;
+        width: 25px;
+        height: 25px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        right: 15px;
+        top: 15px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.button__mail-icon {
+    width: 10px;
+    height: 10px;
+
+    @media screen and (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 32px;
+        height: 32px;
+    }
+}
