@@ -2,7 +2,7 @@
   <div class="container header-container">
     <a href="/src/index.html" class="logo">News</a>
 
-    <nav class="nav">
+    <nav class="navbar">
       <ul class="nav__list">
         <li class="nav__item">
           <a href="/src/index.html" class="nav__link nav__link--current"
@@ -36,7 +36,6 @@
       </label>
     </form>
 
-
     <div class="theme-switch">
       <span class="theme-switch__light-on">Light</span>
       <div class="theme-switch__slider-conteiner">
@@ -47,6 +46,68 @@
       <span class="theme-switch__dark-on">Dark</span>
     </div>
 
+    <!-- <button
+      type="button"
+      class="menu-button"
+      date-menu-button
+      aria-expanded="false"
+      aria-label="Перемикач мобільного меню"
+    >
+      <svg width="24" height="24" class="menu-button-icon">
+        <use href="/src/images/icons.svg#menu" class="icon-menu"></use>
+        <use href="/src/images/icons.svg#close" class="icon-close"></use>
+      </svg>
+    </button> -->
 
+    <button
+      type="button"
+      aria-label="Перемикач мобільного меню"
+      class="button menu-open-btn"
+      data-menu-open
+    >
+      <svg class="menu-open">
+        <use
+          href="/src/images/icons.svg#menu"
+          class="icon-menu"
+          width="24"
+          height="24"
+        ></use>
+      </svg>
+    </button>
+
+
+    <div class="mob-menu is-hidden" data-menu>
+      <div class="mob-menu__container">
+        <div class="mob-menu__buttom">
+          <button type="button" class="menu-close-btn" data-menu-close>
+            <svg class="menu-close">
+              <use href="/src/images/icons.svg#close" class="icon-close" width="40" height="40px"></use>
+            </svg>
+          </button>
+          <ul class="mob-menu__list list-styles">
+            <li class="mob-menu__item"><a class="mob-menu__link link-text mob-current" ">Студія</a>
+            </li>
+            <li class="mob-menu__item">
+              
+            </li>
+            <li class="mob-menu__item"><a class="mob-menu__link link-text" href="">Контакти</a></li>
+          </ul>
+        </div>
+        <div class="mob-menu__top">
+          <ul class="mob-menu__contact list-styles">
+            <li class="mob-menu__contact--tel">
+              <a class="mob-menu__tel mob-menu__link link-text" href="tel:+380961111111">
+                +38 096 111 11 11</a>
+            </li>
+            <li class="mob-menu__contact--mail">
+              <a class="mob-menu__mail mob-menu__link link-text" href="mailto:info@devstudio.com">
+                info@devstudio.com</a>
+            </li>
+          </ul>
+          <div class="mob-container-icon">
+          
+          </div>
+        </div>
+      </div>
   </div>
 </header>
