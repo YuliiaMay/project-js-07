@@ -1,7 +1,9 @@
 #pagination {
   display: flex;
   justify-content: center;
+
   align-items: center;
+
   gap: 8px;
   margin-top: 30px;
 }
@@ -37,6 +39,14 @@
   border-radius: 2px;
 }
 
+
+=======
+.tui-first,
+.tui-last {
+  //   display: block;
+}
+
+
 .pagination-container {
   width: calc(100% - 2rem);
   display: flex;
@@ -55,9 +65,11 @@
   border-radius: 2px;
 }
 
+
 .pagination-button,
 .fl-page-btn,
 .pn-page-btn {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,19 +81,23 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+
   line-height: 1.37;
+
   color: #111321;
 
   background: #f4f4f4;
   border: 1px solid #4440f6;
   border-radius: 2px;
 }
+
 .pn-page-btn {
   font-size: 24px;
 }
 .pn-page-btn.disabled-btn {
   font-size: 16px;
 }
+
 .prew,
 .next {
   display: flex;
@@ -165,3 +181,4 @@
 // footer .heart {
 //   color: #dc143c;
 // }
+

@@ -7,9 +7,9 @@ function renderButtons(category) {
   filtersContainer.insertAdjacentHTML('beforeend', button);
 }
 
-function renderSelect(categories) {
+function renderSelect(categories, className) {
   let listOptions = [];
-  
+
   const listSelects = [];
 
   categories.map(category => {
@@ -20,7 +20,7 @@ function renderSelect(categories) {
   listSelects.push(select);
   select.id = `select_${listSelects.length}`;
   select.name = 'selectName';
-  select.classList.add('class-filter');
+  select.classList.add('class-filter', className);
   filtersContainer.insertAdjacentElement('beforeend', select);
 
   for (let i = 0; i < listOptions.length; i++) {

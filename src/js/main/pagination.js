@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+
 // import NewsApiService from '../api/api-news';
 import { fetchPopularNews } from '../gallery';
 
@@ -12,6 +13,7 @@ async function paginate() {
 
   pagination = await new Pagination('pagination', {
     totalItems: 100,
+
     itemsPerPage: 5,
     visiblePages: 3,
     page: 1,
@@ -23,6 +25,7 @@ async function paginate() {
 
         if (type.type === 'first') {
           template =
+
             '<div class="fl-page-btn disabled-btn">' +
             '<span class="custom-ico">FIRST</span>' +
             '</div>';
@@ -39,6 +42,7 @@ async function paginate() {
         } else if (type.type === 'last') {
           template =
             '<div class="fl-page-btn disabled-btn">' +
+
             '<span class="custom-ico">LAST</span>' +
             '</div>';
         }
@@ -50,6 +54,7 @@ async function paginate() {
 
         if (type.type === 'first') {
           template =
+
             '<div class="fl-page-btn">' +
             '<span class="custom-ico">FIRST</span>' +
             '</div>';
@@ -66,6 +71,7 @@ async function paginate() {
         } else if (type.type === 'last') {
           template =
             '<div class="fl-page-btn">' +
+
             '<span class="custom-ico">LAST</span>' +
             '</div>';
         }
@@ -82,6 +88,7 @@ async function paginate() {
   });
 
   pagination.on('afterMove', event => {
+
     const refCard = document.querySelectorAll('.card');
     refCard.forEach(e => e.remove());
 
@@ -96,6 +103,7 @@ async function paginate() {
 paginate();
 
 // export default paginate;
+
 //!=====================
 
 // let paginationNumbers;
