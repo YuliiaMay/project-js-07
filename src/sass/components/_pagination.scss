@@ -1,0 +1,149 @@
+#pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 33px;
+  height: 31px;
+  background: #f4f4f4;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+
+  color: #111321;
+}
+.tui-is-selected {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+  color: #f4f4f4;
+
+  background: #4440f7;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.tui-first,
+.tui-last {
+  //   display: block;
+}
+
+//!=====================
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+  color: #27253d;
+  background: #e6f3f8;
+}
+
+main {
+  position: relative;
+  padding: 1rem 1rem 3rem;
+  min-height: calc(100vh - 4rem);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.pagination-container {
+  width: calc(100% - 2rem);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem 0;
+  justify-content: center;
+  gap: 8px;
+}
+.pagination-number {
+  width: 33px;
+  height: 31px;
+  background: #f4f4f4;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.pagination-button {
+  // font-size: 1.1rem;
+  // background-color: transparent;
+  // border: none;
+  // margin: 0.25rem 0.25rem;
+  // cursor: pointer;
+  // height: 2.5rem;
+  // width: 2.5rem;
+  // border-radius: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 82px;
+  height: 31px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #111321;
+
+  background: #f4f4f4;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.prew,
+.next {
+  display: flex;
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+  background: #fff;
+}
+
+.pagination-number.active {
+  color: #fff;
+  background: #4440f6;
+}
+
+footer {
+  padding: 1em;
+  text-align: center;
+  background-color: #ffdfb9;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer .heart {
+  color: #dc143c;
+}
+
+#pagination-numbers {
+  display: flex;
+  gap: 8px;
+}
