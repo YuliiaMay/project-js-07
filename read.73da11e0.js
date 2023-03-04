@@ -1,0 +1,2 @@
+const e=document.querySelector(".read__list-date");console.log(e);const o=document.querySelector(".read__list");console.log(o);document.querySelector("body");const n=document.querySelector(".loader");console.log(n),function(){let e=!1;const o=document.querySelectorAll(".nav__link"),n=document.URL;o.forEach((o=>{n.includes(o.pathname)&&(o.classList.add("nav__link--current"),e=!0)})),!e&&document.querySelector('.nav__link[href*="/index.html"]').classList.add("nav__link--current")}();
+//# sourceMappingURL=read.73da11e0.js.map
