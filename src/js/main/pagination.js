@@ -1,14 +1,19 @@
 import Pagination from 'tui-pagination';
-import fetchPopularNews from '../gallery';
+
+// import NewsApiService from '../api/api-news';
+import { fetchPopularNews } from '../gallery';
 
 const newsContainer = document.querySelector('.news__container');
 let pagination = undefined;
+let page = 1;
+const perPage = 7;
 
 async function paginate() {
-  await fetchPopularNews(5, 1);
+  await fetchPopularNews(page, perPage); //(1, 5)
 
   pagination = await new Pagination('pagination', {
-    totalItems: 100, //lengthOfPagination if (counter > count - perPage && counter <= count)
+    totalItems: 100,
+
     itemsPerPage: 5,
     visiblePages: 3,
     page: 1,
@@ -20,22 +25,24 @@ async function paginate() {
 
         if (type.type === 'first') {
           template =
-            '<div class="page-btn">' +
-            '<span class="custom-ico">First</span>' +
+
+            '<div class="fl-page-btn disabled-btn">' +
+            '<span class="custom-ico">FIRST</span>' +
             '</div>';
         } else if (type.type === 'prev') {
           template =
-            '<div class="page-btn">' +
-            '<span class="custom-ico">Prev</span>' +
+            '<div class="pn-page-btn disabled-btn">' +
+            '<span class="custom-ico"><</span>' +
             '</div>';
         } else if (type.type === 'next') {
           template =
-            '<div class="page-btn">' +
-            '<span class="custom-ico">NEXT</span>' +
+            '<div class="pn-page-btn disabled-btn">' +
+            '<span class="custom-ico">></span>' +
             '</div>';
         } else if (type.type === 'last') {
           template =
-            '<div class="page-btn">' +
+            '<div class="fl-page-btn disabled-btn">' +
+
             '<span class="custom-ico">LAST</span>' +
             '</div>';
         }
@@ -47,22 +54,24 @@ async function paginate() {
 
         if (type.type === 'first') {
           template =
-            '<div class="page-btn">' +
-            '<span class="custom-ico">First</span>' +
+
+            '<div class="fl-page-btn">' +
+            '<span class="custom-ico">FIRST</span>' +
             '</div>';
         } else if (type.type === 'prev') {
           template =
-            '<div class="page-btn">' +
-            '<span class="custom-ico">Prev</span>' +
+            '<div class="pn-page-btn">' +
+            '<span class="custom-ico"><</span>' +
             '</div>';
         } else if (type.type === 'next') {
           template =
-            '<div class="page-btn">' +
-            '<span class="custom-ico">NEXT</span>' +
+            '<div class="pn-page-btn">' +
+            '<span class="custom-ico">></span>' +
             '</div>';
         } else if (type.type === 'last') {
           template =
-            '<div class="page-btn">' +
+            '<div class="fl-page-btn">' +
+
             '<span class="custom-ico">LAST</span>' +
             '</div>';
         }
@@ -79,14 +88,22 @@ async function paginate() {
   });
 
   pagination.on('afterMove', event => {
-    newsContainer.innerHTML = '';
+
+    const refCard = document.querySelectorAll('.card');
+    refCard.forEach(e => e.remove());
+
     const { page } = event;
 
-    fetchPopularNews(5, page);
+    fetchPopularNews(page, perPage);
+    // const news = new NewsApiService();
+    // console.log(news.searchNewsByCategory());
   });
 }
+
 paginate();
-export default paginate;
+
+// export default paginate;
+
 //!=====================
 
 // let paginationNumbers;
