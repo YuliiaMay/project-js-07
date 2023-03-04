@@ -4,11 +4,10 @@ import './js/api/api-weather';
 import './js/api/service';
 import './js/adv';
 import './js/main/calander';
-// import './js/main/filter-category.js';
+import './js/main/filter-category.js';
 import './js/main/filter-data';
 import './js/main/pagination';
 import './js/loader';
-
 
 import './js/render/render-gallery';
 
