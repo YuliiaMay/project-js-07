@@ -1,5 +1,6 @@
 import './sass/index.scss';
 import './js/api/api-news';
+import './js/api/create-card';
 import './js/api/api-weather';
 import './js/api/service';
 import './js/loader';
