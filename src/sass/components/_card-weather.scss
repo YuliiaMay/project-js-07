@@ -76,7 +76,7 @@
   text-align: center;
 }
 
-.weather__btn {
+.weather__btn, .one__day {
   border: none;
   display: block;
   padding: 8px 14px;
@@ -90,6 +90,31 @@
   color: #ffffff;
   transition: background-color $transition-duration;
 }
-.weather__btn:hover {
+.weather__btn:hover,
+.one__day:hover {
   background: rgba(254, 254, 255, 0.5);
+}
+
+///=====================weather for week======================///
+
+.week__weather--more {
+  display: flex;
+  gap: 20px;
+  justify-content: baseline;
+  font-size: 16px;
+}
+
+.day__weather {
+display: flex;
+// flex-direction: column;
+gap: 16px;
+// row-gap: 30px;
+margin-bottom: 22px;
+color: #0e0d0df6;
+align-items: center;
+}
+
+.weather--day__title {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
 }
