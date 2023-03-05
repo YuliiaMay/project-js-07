@@ -14,20 +14,20 @@ async function fetchPopularNews() {
 function fetchNews(dataNews) {
   let dataNewsArr = dataNews.data.results;
   const card = dataNewsArr
-    .map(({ media, source, title, abstract, published_date, url, section }) => {
+    .map(({ media, source, title, abstract, published_date, url, section, id }) => {
       let src = media.length
         ? media.map(media => media['media-metadata'][2].url)
         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvFBa3G11OUBYADP7ouSBgwiiRzSYorF4dfg&usqp=CAU';
-      return `<div class="card" id="card">
+      return `<div class="card" id="${id}">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${src}" alt="${source}" />
-                  <button type="button" class="card__favorite">
+                  <button type="button" class="card__favorite active">
                     Add to favorite
-                    <svg class="icon-heart unchecked">
+                    <svg class="icon-empty-heart">
                       <use class="icon" href="/icons.adfc4680.svg#empty-heart"></use>
                     </svg>
-                    <svg class="icon-heart is-hidden-btn">
-                      <use class="icon" href="/icons.adfc4680.svg#fill-heart"></use>
+                    <svg class="icon-heart">
+                      <use class="icon" href="/icons.adfc4680.svg#fill-heart is-hidden-icon"></use>
                     </svg>
                   </button>
                 </div>
@@ -51,7 +51,6 @@ function fetchNews(dataNews) {
     .join('');
   newsContainer.insertAdjacentHTML('beforeend', card);
 
-  return card;
 }
 
 //--------------функція для рендера новин по категоріям!!-----------------
@@ -63,20 +62,20 @@ function renderCategoryCard(docs) {
 
   const card = docs
     .map(
-      ({ source, abstract, pub_date, web_url, section_name, multimedia }) => {
+      ({ source, abstract, pub_date, web_url, section_name, multimedia, id }) => {
         let src = multimedia.length
           ? `https://static01.nyt.com/${multimedia[0].url}`
           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvFBa3G11OUBYADP7ouSBgwiiRzSYorF4dfg&usqp=CAU';
-        return `<div class="card" id="card">
+        return `<div class="card" id="${id}">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${src}" alt="${source}" />
-                  <button type="button" class="card__favorite">
+                  <button type="button" class="card__favorite active add-btn">
                     Add to favorite
-                    <svg class="icon-heart unchecked">
+                    <svg class="icon-empty-heart">
                       <use class="icon" href="/icons.adfc4680.svg#empty-heart"></use>
                     </svg>
-                    <svg class="icon-heart is-hidden-btn">
-                      <use class="icon" href="/icons.adfc4680.svg#fill-heart"></use>
+                    <svg class="icon-heart">
+                      <use class="icon" href="/icons.adfc4680.svg#fill-heart is-hidden-icon"></use>
                     </svg>
                   </button>
                 </div>
@@ -101,7 +100,6 @@ function renderCategoryCard(docs) {
     .join('');
   newsContainer.insertAdjacentHTML('beforeend', card);
 
-  return card;
 }
 
 export { fetchNews, fetchPopularNews, renderCategoryCard };
