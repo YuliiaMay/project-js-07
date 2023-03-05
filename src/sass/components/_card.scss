@@ -131,9 +131,22 @@
   font-size: 12px;
   line-height: 1.33;
   text-align: center;
-
+  height: 28px;
   color: #111321;
 }
+
+.card__favorite .icon-heart {
+  display: none;
+}
+
+.card__favorite.active .icon-heart {
+  display: block;
+}
+
+.card__favorite.active .icon-empty-heart {
+  display: none;
+}
+
 
 .favorite__text {
   padding: 6px 3px 6px 12px;
@@ -146,9 +159,17 @@
   padding-right: 6px;
 }
 
-.icon-heart.checked {
-  fill: #4b48da;
+.icon-empty-heart {
+  fill: #ffffff;
+  width: 16px;
+  height: 16px;
+  padding-right: 6px;
 }
+
+
+// .checked {
+//   fill: none;
+// }
 
 .news__card {
   // border: 1px solid rgb(207, 128, 18);
