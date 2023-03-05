@@ -57,7 +57,10 @@ function fetchNews(dataNews) {
 //--------------функція для рендера новин по категоріям!!-----------------
 
 function renderCategoryCard(docs) {
-  newsContainer.innerHTML = '';
+  //newsContainer.innerHTML = '';
+  const refCard = document.querySelectorAll('.card');
+  refCard.forEach(e => e.remove());
+
   const card = docs
     .map(
       ({ source, abstract, pub_date, web_url, section_name, multimedia }) => {
