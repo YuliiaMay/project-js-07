@@ -1,17 +1,25 @@
 .category__filter-container {
   margin-left: 16px;
   padding-bottom: 60px;
-  padding-top: 35px;
+  padding-top: 28px;
   display: flex;
   gap: 16px;
 
   @media all and (min-width: 481px) and(max-width:1200px) {
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
   }
 }
 
 .class-filter {
-  color: #4440f7;
+  color: $blue-text-color;
+
+  font-family: $main-text-font;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+
+  padding: 8px 21px;
+
   padding-left: 16px;
   padding-right: 16px;
   border: 1px solid #4440f7;
@@ -30,12 +38,18 @@
 }
 
 .category__filter-btn.active {
-  background-color: #4440f7;
+  background-color: #4440f6;
   color: #ffffff;
 }
 
 .category__filter-btn {
-  color: #4440f7;
+  font-family: $main-text-font;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: $blue-text-color;
 
   box-sizing: border-box;
 
@@ -54,4 +68,12 @@
   @media all and (max-width: 480px) {
     display: none;
   }
+}
+
+.class-filter.active {
+  color: #ffffff;
+  background-color: #4440f7;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
 }
