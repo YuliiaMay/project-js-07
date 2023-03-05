@@ -1,2 +1,0 @@
-!function(){var e=document.querySelector(".read__list-date");console.log(e);var n=document.querySelector(".read__list");console.log(n);document.querySelector("body");var o,l,c,r=document.querySelector(".loader");console.log(r),o=!1,l=document.querySelectorAll(".nav__link"),c=document.URL,l.forEach((function(e){c.includes(e.pathname)&&(e.classList.add("nav__link--current"),o=!0)})),!o&&document.querySelector('.nav__link[href*="/index.html"]').classList.add("nav__link--current")}();
-//# sourceMappingURL=read.295a36d2.js.map

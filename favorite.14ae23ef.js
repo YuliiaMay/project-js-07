@@ -1,2 +1,0 @@
-!function(){document.querySelector("body");var e,n,c,l=document.querySelector(".loader");console.log(l),e=!1,n=document.querySelectorAll(".nav__link"),c=document.URL,n.forEach((function(n){c.includes(n.pathname)&&(n.classList.add("nav__link--current"),e=!0)})),!e&&document.querySelector('.nav__link[href*="/index.html"]').classList.add("nav__link--current")}();
-//# sourceMappingURL=favorite.14ae23ef.js.map

@@ -1,2 +1,0 @@
-document.querySelector("body");const e=document.querySelector(".loader");console.log(e),function(){let e=!1;const n=document.querySelectorAll(".nav__link"),c=document.URL;n.forEach((n=>{c.includes(n.pathname)&&(n.classList.add("nav__link--current"),e=!0)})),!e&&document.querySelector('.nav__link[href*="/index.html"]').classList.add("nav__link--current")}();
-//# sourceMappingURL=favorite.c6c08aa2.js.map
