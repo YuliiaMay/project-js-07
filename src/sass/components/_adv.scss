@@ -1,17 +1,41 @@
 .banner {
+    display: none;
     position: fixed;
     z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 1;
+    animation: banner-show $transition-duration forwards;
 }
 
-.banner__zsu {
-    width: 100%;
+@keyframes banner-show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.banner_hide{
+    pointer-events: none;
+    opacity: 1;
+    animation: banner-hidden $transition-duration forwards;
+}
+@keyframes banner-hidden {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .banner__button {
-    position: inherit;
+    position: fixed;
     z-index: 20;
     background-color: transparent;
     right: 5px;
@@ -35,7 +59,7 @@
     }
 }
 
-.button__mail-icon {
+.banner__button-cross_icon {
     width: 10px;
     height: 10px;
 

@@ -20,8 +20,7 @@
 
 .footer__logo{
     cursor: pointer;
-    font-family: 'Manrope';
-    font-style: normal;
+    font-family: $main-text-font;
     font-weight: 700;
     font-size: 24px;
     line-height: 1.38;
@@ -56,8 +55,7 @@
 }
 
 .footer__quote-text{
-    font-family: 'Manrope';
-    font-style: normal;
+    font-family: $main-text-font;
     font-weight: 400;
     font-size: 10px;
     line-height: 1.36;
@@ -71,8 +69,7 @@
 
 .footer__quote-autor{
     text-align: center;
-    font-family: 'Manrope';
-    font-style: normal;
+    font-family: $main-text-font;
     font-weight: 400;        
     font-size: 8px;
     line-height: 1.33;
