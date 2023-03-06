@@ -30,8 +30,13 @@ filtersContainer.addEventListener('click', onFilterCategories);
 
 function onFilterCategories(event) {
   let categoryName = event.target.value;
+  let type = event.target.dataset.type;
 
-  event.target.classList.toggle('active');
+  if (type === 'button') {
+    event.target.classList.toggle('active');
+  } else {
+    event.target.classList.add('active');
+  }
 
   const hasCategory = categoriesArray.includes(categoryName);
 
