@@ -10,16 +10,17 @@ getPopularCardData();
 
 async function getPopularCardData() {
     let response = await axios.get('https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A');
-    console.log(response);
+
     const data = response.data.results;
-    saveData(data);
+    
 }
 
 // const ar
 const cardsFavArray = [];
-const savedFavCard = {};
+
 
 function saveData(data) {
+    const savedFavCard = {};
     data.map(({ media, source, title, abstract, published_date, url, section, id }) => {
     
     let src = media.length
@@ -46,18 +47,18 @@ const FAVORITE_KEY = 'favorite';
 // const READ_KEY = 'favorite';
 
 
-const galleryEl = document.querySelector('.news__gallery'); 
-const cardEl = document.querySelector('.card'); 
+// const galleryEl = document.querySelector('.news__gallery'); 
+// const cardEl = document.querySelector('.card'); 
 
 
-galleryEl.addEventListener('click', onFavBtnClick); 
+// galleryEl.addEventListener('click', onFavBtnClick); 
 
-function onFavBtnClick(e) {
-    const btnFav = e.target;
+// function onFavBtnClick(e) {
+//     const btnFav = e.target;
 
-    if (e.target.nodeName !== 'BUTTON') {
-        return
-    }
+//     if (e.target.nodeName !== 'BUTTON') {
+//         return
+//     }
 
-    console.log(cardsFavArray);
-}
+//     console.log(cardsFavArray);
+// }
