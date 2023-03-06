@@ -1,0 +1,290 @@
+svg {
+	display: block;
+ }
+
+.conteiner_filter {
+	display: flex;
+	flex-wrap: nowrap;	
+	justify-content: space-between;
+}
+
+.is-hidden_open-close_svg {
+	display: none;
+}
+
+.calendar_box {
+	display: block;
+	display: flex;
+	margin-right: 52px;
+	padding-top: 35px;
+	padding-bottom: 60px;
+	align-items:baseline
+}
+.calendar_input {
+	text-align: center;
+	width: 151px;
+	height: 31px;
+	border-radius: 20px;
+	border: 1px solid $input-border;
+
+	 // tablet
+	@media screen and (min-width: 768px) {
+		width: 168px;
+	 }
+
+	 // desktop
+	 @media screen and (min-width: 1280px) {
+		width: 168px;
+	 }
+
+}
+
+.calendar_input_is-activ {
+	background-color: $background-color-accent;
+	color: $line-color-light;
+	border: none;
+
+	&::placeholder {
+		color: $line-color-light;
+		font-family: $main-text-font;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: calc(21 / 12);
+		letter-spacing: 0.02px;
+
+		// tablet
+		@media screen and (min-width: 768px) {
+			font-size: 14px;
+		   line-height: calc(21 / 14);
+		 }
+	}
+}
+
+.calendar_box_text {
+	display: none;
+	margin-right: 37px;
+
+	
+
+	@media screen and (min-width: 1280px) {
+    	display: block;
+
+		font-family: $main-text-font;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: calc(25 / 18);
+	 }
+
+}
+
+.calendar_serch_input{
+	position: relative;		
+}
+
+.calendar_svg {
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	fill: $background-color-accent;
+
+}
+
+.calendar_svg_is-activ {
+	fill: $background-color-light;	
+}
+
+.open_calendar_svg{
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	fill: #A2A2A2;
+
+
+
+}
+
+.close_calendar_svg {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	fill: #FFFFFF;
+
+
+
+}
+
+.close_calendar_svg_is-activ {
+	fill:#FFFFFF;
+}
+
+.calendar_wrapper_close {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	right: 0;	
+	padding: 27px 16px 20px;
+	width: 250px;
+	height: 250px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+	background: #e6e6e3fc;
+	
+	transform: translateY(-100%);
+	transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+ }
+
+.calendar_wrapper_open {
+	z-index: 1;
+	opacity: 1;
+	transform: translateY(-1);
+	transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+ .year_box {	
+	display: flex;
+	gap: 5px;
+	align-items: baseline;
+ }
+
+ .minus_year {
+	transform: rotate(-90deg);
+	fill: $background-color-accent;
+}
+
+.year {
+	font-family: $main-text-font;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: calc(22 / 16);
+	letter-spacing: -0.408px;
+}
+
+.plus_year{
+	transform: rotate(90deg);
+	fill: $background-color-accent;
+}
+
+.month {
+	width: 70px;
+	text-align: center;
+
+	font-family: $main-text-font;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: calc(22 / 16);
+	letter-spacing: -0.408px;
+}
+
+ .month_box {
+	display: flex;
+	gap: 5px;
+	align-items: baseline;
+
+ }
+
+ .minus_month {
+	transform: rotate(-90deg);
+	fill: $background-color-accent;
+ }
+
+ .plus_month {
+	transform: rotate(90deg);
+	fill: $background-color-accent;
+ }
+
+ .yaer_month {
+	display: flex;
+	justify-content: space-between;
+ }
+
+ .week {
+	list-style: none;
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 14px;	
+
+
+ }
+
+ .day_of_week {
+	font-family: $main-text-font;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 18px;
+	width: calc(100% / 7);
+	text-align: center;
+ }
+
+ .days_of_month {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;	
+	
+ }
+
+ .days_of_month li {
+	width: calc(100% / 7);
+	text-align: center;
+
+	font-family: $main-text-font;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: calc(25 / 14);
+	letter-spacing: 0.38px;
+
+
+	&:not(:nth-last-child(-n + 7)) {
+		margin-bottom: 12px;
+	 }
+
+	 &:nth-child(n + 6) {
+		color: #f20202;
+	 }
+
+	 &:nth-child(n + 8) {
+		color: #000;
+	 }
+
+	 &:nth-child(n + 13) {
+		color: #f20202;
+	 }
+
+	 &:nth-child(n + 15) {
+		color: #000;
+	 }
+
+	 &:nth-child(n + 20) {
+		color: #f20202;
+	 }
+
+	 &:nth-child(n + 22) {
+		color: #000;
+	 }
+
+	 &:nth-child(n + 27) {
+		color: #f20202;
+	 }
+
+	 &:nth-child(n + 29) {
+		color: #000;
+	 }
+
+	 &:nth-child(n + 34) {
+		color: #f20202;
+	 }
+}
+
+.previous-month,
+.next-month {
+	
+	color: #5F6775!important;
+}
+
+.is-active_day {
+	background-color: #9B59B6;
+	
+}
+
