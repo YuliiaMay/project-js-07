@@ -46,7 +46,7 @@
     
     @media screen and (min-width: 768px) {
         height: 90px;
-        width: 350px;
+        width: 500px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -106,7 +106,7 @@
     white-space: nowrap;
 
     @media screen and (min-width: 768px) {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.38;
     }
 }
@@ -130,9 +130,10 @@
     }
 }
 
-.footer__mail-icon{
+.footer__mail-icon {
     width: 12;
     height: 8px;
+    fill: currentColor;
 
     @media screen and (min-width: 768px) {
         width: 14px;
@@ -143,4 +144,14 @@
         width: 16px;
         height: 12px;
     }
+}
+
+.footer__mail:hover,
+.footer__mail:focus {
+    color: #4440f6;
+}
+
+.footer__mail-icon:hover,
+.footer__mail-icon:focus {
+    fill: currentColor;
 }
