@@ -1,32 +1,52 @@
 import axios from 'axios';
-import { fetchPopularNews } from "../gallery";
+import { getDataFromLocalStorage, setDataToLocalStorage } from '../api/service';
 
+// ===========================================//
 
-// console.log(fetchPopularNews());
-// console.log(fetchNews);
-// console.log({card});
-
-
-
-    const galleryEl = document.querySelector('.news__gallery');
-const cardEl = document.querySelector('.card');
-
+const galleryEl = document.querySelector('.news__gallery');
+// const favoriteSection = document.querySelector('.favorite__section');
+// const favoriteList = document.querySelector('.favorite__container');
+// const errorCard = document.querySelector('.error');
 console.log(galleryEl);
-// console.log(cardEl);
+//////////////////////////////////////
+const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
+async function fetchPopularNews() {
+  let { data } = await axios.get(POPULAR_NEWS_URL);
+  console.log(data);
+  return data;
+}
+///////////////////////////////////
 
-galleryEl.addEventListener('click', onClick);
+if (galleryEl) galleryEl.addEventListener('click', onBtnFavoriteClick);
 
-function onClick(e) {
+let dataFavorite = null;
+export async function onBtnFavoriteClick(e) {
+  try {
+    const btn = e.target.closest('.item-news__add-to-favorite');
+    if (!btn) return;
 
-    console.log(e.currentTarget);
+    btn.classList.toggle('hidden-span');
+    const idCard = btn.closest('.card').dataset.id;
 
-    if (e.target.nodeName === 'BUTTON') {
-        console.log('юху');
+    const newsArray = getDataFromLocalStorage('news');
+
+    const indexElem = newsArray.findIndex(
+      ({ id }) => Number(id) === Number(idCard)
+    );
+    console.log('indexElem ', indexElem);
+
+    if (indexElem > -1) {
+      newsArray.splice(indexElem, 1);
+    } else {
+      if (!dataFavorite) {
+        const { results } = await fetchPopularNews();
+        dataFavorite = results;
+      }
+      const obj = dataFavorite.find(({ id }) => Number(id) === Number(idCard));
+      newsArray.push(obj);
     }
-
-
-
-        if (e.currentTarget.nodeName === 'BUTTON') {
-        console.log('+');
-    }
+    setDataToLocalStorage('news', newsArray);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
