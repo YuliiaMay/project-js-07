@@ -1,0 +1,134 @@
+#pagination {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 33px;
+  height: 31px;
+  background: #f4f4f4;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+
+  color: #111321;
+}
+.tui-is-selected {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+  color: #f4f4f4;
+
+  background: #4440f7;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.pagination-container {
+  width: calc(100% - 2rem);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem 0;
+  justify-content: center;
+  gap: 8px;
+}
+.pagination-number {
+  width: 33px;
+  height: 31px;
+  background: #f4f4f4;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.pagination-button,
+.fl-page-btn,
+.pn-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 82px;
+  height: 31px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+
+  line-height: 1.37;
+
+  color: #111321;
+
+  background: #f4f4f4;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.pn-page-btn {
+  font-size: 24px;
+}
+.pn-page-btn.disabled-btn {
+  font-size: 16px;
+}
+
+.prew,
+.next {
+  display: flex;
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+  background: #fff;
+}
+
+.pagination-number.active {
+  color: #fff;
+  background: #4440f6;
+}
+
+#pagination-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.fl-page-btn,
+.pn-page-btn {
+  cursor: pointer;
+}
+
+.tui-page-btn:hover,
+.fl-page-btn:hover,
+.pn-page-btn:hover {
+  background-color: powderblue;
+  font-weight: 600;
+}
+
+.tui-page-btn.tui-is-selected:hover {
+  color: #f4f4f4;
+  background: #4440f7;
+}
+
+.fl-page-btn.disabled-btn,
+.pn-page-btn.disabled-btn {
+  background: transparent;
+  cursor: default;
+  font-weight: normal;
+}
