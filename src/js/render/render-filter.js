@@ -2,7 +2,7 @@ const filtersContainer = document.querySelector('.category__filter-container');
 
 function renderButtons(category) {
   const { section, display_name } = category;
-  const button = `<button type="button" class="category__filter-btn" data-name="${display_name}" value="${display_name}">${display_name}</button>`;
+  const button = `<button type="button" class="category__filter-btn" data-type="button" data-name="${display_name}" value="${display_name}">${display_name}</button>`;
 
   filtersContainer.insertAdjacentHTML('beforeend', button);
 }
