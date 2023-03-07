@@ -1,10 +1,6 @@
 import Pagination from 'tui-pagination';
 
-import {
-  fetchPopularNews,
-  newsPaginationLength,
-  renderCards,
-} from '../gallery';
+import { fetchPopularNews } from '../gallery';
 
 const newsContainer = document.querySelector('.news__container');
 let pagination = undefined;
@@ -94,4 +90,4 @@ async function paginate() {
   });
 }
 
-paginate();
+// paginate();

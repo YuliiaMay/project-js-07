@@ -1,12 +1,9 @@
 .category__filter-container {
-  margin-left: 16px;
-  padding-bottom: 60px;
-  padding-top: 28px;
   display: flex;
   gap: 16px;
 
   @media all and (min-width: 481px) and(max-width:1200px) {
-    // flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 
@@ -18,22 +15,24 @@
   font-size: 12px;
   line-height: 16px;
 
-  padding: 8px 21px;
+  padding: 8px 16px;
 
-  padding-left: 16px;
-  padding-right: 16px;
   border: 1px solid #4440f7;
   border-radius: 20px;
 }
 
 .desctop-select {
-  @media all and (max-width: 480px) {
+  @media all and (max-width: 767px) {
     display: none;
   }
 }
 .mobile-select {
-  @media all and (min-width: 481px) {
+  @media all and (min-width: 768px) {
     display: none;
+  }
+
+  @media all and (max-width: 767px) {
+    margin-right: 24px;
   }
 }
 
@@ -50,6 +49,7 @@
   line-height: 16px;
 
   color: $blue-text-color;
+  background: #f4f4f4;
 
   box-sizing: border-box;
 
@@ -58,22 +58,64 @@
   justify-content: center;
   align-items: center;
 
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 8px 16px;
+
   gap: 16px;
 
   border: 1px solid #4440f7;
   border-radius: 20px;
 
-  @media all and (max-width: 480px) {
+  @media all and (max-width: 767px) {
     display: none;
   }
 }
 
-.class-filter.active {
+select.class-filter:focus-visible {
   color: #ffffff;
   background-color: #4440f7;
+  border-color: #4440f7;
+  outline: none;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
+}
+
+select.class-filter:focus-visible option {
+  background: #f8f8f8;
+  border-radius: 20px;
+  color: #4440f7;
+}
+
+select.class-filter {
+  background: #f8f8f8;
+}
+
+select.class-filter.active {
+  background-color: #4440f6;
+  color: #ffffff;
+}
+
+//------------------------------------
+
+.filter__calendar {
+  padding: 8px 16px;
+  min-width: 168px;
+  min-height: 31px;
+  background: #f8f8f8;
+  border: 1px solid #111321;
+  border-radius: 20px;
+}
+
+.container__wrapper {
+  padding-top: 28px;
+  margin-bottom: 60px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media all and(max-width:980px) {
+    align-items: flex-start;
+  }
 }
