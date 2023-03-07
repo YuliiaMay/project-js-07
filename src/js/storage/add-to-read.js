@@ -112,4 +112,4 @@ async function onReadMoreClick(e) {
 
 
 
-export const FILTERED_NEWS_URL = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
+// export const FILTERED_NEWS_URL = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
