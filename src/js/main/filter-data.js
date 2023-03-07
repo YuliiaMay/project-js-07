@@ -10,18 +10,22 @@ const minusMonth = document.querySelector('.minus_month');
 const monthScrin = document.querySelector('.month');
 const plusMonth = document.querySelector('.plus_month');
 const dayUl = document.querySelector('.days_of_month');
-const input = document.querySelector('.calendar_input');
+const calendarInput = document.querySelector('.calendar_input');
 const calendarSvg = document.querySelector('.calendar_svg');
 
 const months = ["January", "February", "March", "April", "May", "June", "July",
  "August", "September", "October", "November", "December"];
 const date = new Date();
 
-let year = date.getFullYear();
-let month = date.getMonth();
-let liValue;
+let calendarYear = date.getFullYear();
+let calendarMonth = date.getMonth();
+let calendarLiValue;
+let calendarMonthValue;
+let calendarYearValue;
+let calendarInputValue;
 
-renderMarkup()
+
+renderMarkup();
 renderYear();
 renderMonth();
 
@@ -34,7 +38,7 @@ plusMonth.addEventListener('click', onPlusMonth);
 
 function onOpenCalendar() {
 	calendarSvg.classList.add('calendar_svg_is-activ');
-	input.classList.add('calendar_input_is-activ');
+	calendarInput.classList.add('calendar_input_is-activ');
 	closeCalendar.classList.remove('is-hidden_open-close_svg');
 	openCalendar.classList.add('is-hidden_open-close_svg');
 	calendarWrepper.classList.add('calendar_wrapper_open');
@@ -42,106 +46,106 @@ function onOpenCalendar() {
 
 function onCloseCalendar() {
 	calendarSvg.classList.remove('calendar_svg_is-activ');
-	input.classList.remove('calendar_input_is-activ');
+	calendarInput.classList.remove('calendar_input_is-activ');
 	closeCalendar.classList.add('is-hidden_open-close_svg');
 	openCalendar.classList.remove('is-hidden_open-close_svg');
 	calendarWrepper.classList.remove('calendar_wrapper_open');
 }
 
 function renderYear() {
-	yearScrin.textContent = year;
+	yearScrin.textContent = calendarYear;
 }
 
 function onMinusYear() {
 	renderMarkup()
-	year -= 1;
+	calendarYear -= 1;
 	renderYear();
 	
-	inputValue = input.value
-	 if(inputValue) {
-		yerValue = yearScrin.textContent;	
-		input.value = `${liValue}/${monthValue}/${yerValue}`;
+	calendarInputValue = calendarInput.value
+	 if(calendarInputValue) {
+		calendarYearValue = yearScrin.textContent;	
+		calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	 }	
 }
 
 function onPlusYear() {
 	renderMarkup();
-	year += 1;
+	calendarYear += 1;
 	renderYear();
 
-	inputValue = input.value
-	 if(inputValue) {
-		yerValue = yearScrin.textContent;	
-		input.value = `${liValue}/${monthValue}/${yerValue}`;
+	calendarInputValue = calendarInput.value
+	 if(calendarInputValue) {
+		calendarYearValue = yearScrin.textContent;	
+		calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	 }
 }
 
 function renderMonth() {
-	monthScrin.textContent = months[month];
+	monthScrin.textContent = months[calendarMonth];
 }
 
 function onMinusMonth() {
-	if(month < 1) {
-		year -= 1;
-		month = 11;
+	if(calendarMonth < 1) {
+		calendarYear -= 1;
+		calendarMonth = 11;
 		renderYear();
 		renderMarkup();
 		renderMonth();
 
-		inputValue = input.value
-	 if(inputValue) {
-		monthValue = addLeadingZero(month + 1);
-		yerValue = yearScrin.textContent;
-	 input.value = `${liValue}/${monthValue}/${yerValue}`;
+		calendarInputValue = calendarInput.value
+	 if(calendarInputValue) {
+		calendarMonthValue = addLeadingZero(calendarMonth + 1);
+		calendarYearValue = yearScrin.textContent;
+		calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	}
 		return
 	}
 
-	inputValue = input.value
-	if(inputValue) {
-		monthValue = addLeadingZero(month);
-		yerValue = yearScrin.textContent;
-	input.value = `${liValue}/${monthValue}/${yerValue}`;
+	calendarInputValue = calendarInput.value
+	if(calendarInputValue) {
+		calendarMonthValue = addLeadingZero(calendarMonth);
+		calendarYearValue = yearScrin.textContent;
+		calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	}
 	
-	 month -= 1;
+	calendarMonth -= 1;
 	renderMonth()
 	renderMarkup()
 
 }
 
 function onPlusMonth() {
-	if(month > 10) {
-		year += 1;
-		month = 1;
+	if(calendarMonth > 10) {
+		calendarYear += 1;
+		calendarMonth = 1;
 		renderMarkup();
 		renderYear();
 		renderMonth();
 
-		inputValue = input.value
-		if(inputValue) {
-			monthValue = addLeadingZero(month);
-			yerValue = yearScrin.textContent;
-			input.value = `${liValue}/${monthValue}/${yerValue}`;
+		calendarInputValue = calendarInput.value
+		if(calendarInputValue) {
+			calendarMonthValue = addLeadingZero(calendarMonth);
+			calendarYearValue = yearScrin.textContent;
+			calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 		}		
 		return
 	}
 	
-	month += 1;
+	calendarMonth += 1;
 	renderMonth()
 	renderMarkup()
 
-	inputValue = input.value
-	if(inputValue) {
-		monthValue = addLeadingZero(month + 1);
-		yerValue = yearScrin.textContent;
-	input.value = `${liValue}/${monthValue}/${yerValue}`;
+	calendarInputValue = calendarInput.value
+	if(calendarInputValue) {
+		calendarMonthValue = addLeadingZero(calendarMonth + 1);
+		calendarYearValue = yearScrin.textContent;
+		calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	}
 }
 
 
 function renderMarkup(){
-	calendarApiService(year, month).then(days => {createMarkup(days)})
+	calendarApiService(calendarYear, calendarMonth).then(days => {createMarkup(days)})
 }
 
 function createMarkup(days) {
@@ -178,10 +182,10 @@ function onClick(e) {
 		isActivLi.classList.remove('is-active_day');
 	}
 
-	liValue = addLeadingZero(e.target.textContent);
-	monthValue = addLeadingZero(month + 1);
-	yerValue = yearScrin.textContent;
-	input.value = `${liValue}/${monthValue}/${yerValue}`;
+	calendarLiValue = addLeadingZero(e.target.textContent);
+	calendarMonthValue = addLeadingZero(calendarMonth + 1);
+	calendarYearValue = yearScrin.textContent;
+	calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	liClass.classList.add('is-active_day');	
 }
 
