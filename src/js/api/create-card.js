@@ -2,7 +2,7 @@
 
 
 // import axios from 'axios';
-import getParsedData from '../storage/add-to-read'
+// import getParsedData from '../storage/add-to-read'
 
 
 

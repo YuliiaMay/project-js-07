@@ -85,6 +85,8 @@
 //   color: #4440f7;
 // }
 
+//////////////////////////////////////////////////////////////////////////////
+
 .item-news__add-to-favorite {
   position: absolute;
 
@@ -99,8 +101,8 @@
   bottom: 12px;
 
   background: #ffffff00;
-  border: none;
   border-radius: 20px;
+  border: none;
 
   font-weight: 500;
   font-size: 12px;
@@ -116,7 +118,7 @@
     content: '';
     display: block;
     position: absolute;
-    right: 11;
+    right: 0;
     top: 0;
     border-radius: 20px;
     height: 28px;
@@ -129,10 +131,10 @@
   }
 
   & .item-news__remove-to-favorite-btn {
-    // position: absolute;
+    position: absolute;
 
-    // left: -26px;
-    width: 153px;
+    left: -26px;
+    width: 147px;
     opacity: 0;
     z-index: 2;
     pointer-events: none;
@@ -152,7 +154,7 @@
     top: -6px;
     border-radius: 20px;
     height: 28px;
-    width: 126px;
+    width: 120px;
     z-index: -1;
 
     background: #ffffff;
@@ -195,6 +197,7 @@
   fill: white;
   position: absolute;
   right: 12px;
+
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
