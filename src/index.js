@@ -4,7 +4,7 @@ import './js/api/api-news';
 // import './js/api/create-card';
 import './js/api/api-weather';
 import './js/api/service';
-import './js/storage/save-data';
+// import './js/storage/save-data';
 import './js/loader';
 import './js/adv';
 import './js/nav';
