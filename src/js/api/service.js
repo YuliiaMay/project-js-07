@@ -1,5 +1,3 @@
-
-// ///////////////////////////////////Любі треба ці функції/////////////////
 export function getDataFromLocalStorage(key) {
   try {
     const data = localStorage.getItem(key);
