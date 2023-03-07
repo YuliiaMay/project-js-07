@@ -8,6 +8,8 @@ const key = '1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 const categoryUrl = '/content/section-list.json';
 const searchUrl = '/articlesearch.json';
 
+export const FILTERED_NEWS_URL = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
+
 let categoriesArray = [];
 
 const keyLocalStorage = 'selected-categories';

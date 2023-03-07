@@ -112,7 +112,7 @@ function fetchNews(dataNewsArr) {
                 </div>
                 <div class="card__footer">
                   <span class="card__date">${published_date}</span>
-                  <a class="card__ref" href="${url}" target="_blank"
+                  <a class="card__ref" target="_blank"
                   rel="noreferrer noopener">Read more</a>
                 </div>
                 </div>
@@ -131,6 +131,8 @@ function fetchNews(dataNewsArr) {
   newsContainer.insertAdjacentHTML('beforeend', card);
 }
 
+
 function renderCards() {}
 
 export { fetchNews, fetchPopularNews, createObj };
+

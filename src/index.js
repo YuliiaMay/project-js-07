@@ -1,4 +1,5 @@
 import './sass/index.scss';
+import './js/mobile-menu';
 import './js/api/api-news';
 import './js/api/create-card';
 import './js/api/api-weather';
@@ -17,7 +18,7 @@ import './js/storage/add-to-favorite';
 import './js/storage/add-to-read';
 
 import './js/gallery';
-import './js/mobile-menu';
+
 import './js/theme';
 import './js/search';
 import './js/footer';
