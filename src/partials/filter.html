@@ -3,6 +3,64 @@
   
   <div class="category__filter-container"></div>
   
-  <button class="filter__calendar" type="button">тіпа календар</button>
+  <div class="calendar_box">
+	<p class="calendar_box_text">Search date news</p>
+
+	<div class="calendar_serch_input">
+		
+		<svg class="calendar_svg"   height="20px" width="20px">
+			<use href="./images/icons.svg#calendar"></use>
+		</svg>
+
+		<input class="calendar_input" type="text" name="calendar-name" disabled placeholder="Select a date...">
+		
+		<svg class="open_calendar_svg" width="20px" height="15px">
+			<use href="./images/icons.svg#pointer-down"></use>
+		</svg>
+		<svg class="close_calendar_svg is-hidden_open-close_svg" width="20px" height="15px">
+			<use href="./images/icons.svg#pointer-up"></use>
+		</svg>
+
+		<div class="calendar_wrapper_close">
+			<div class="yaer_month">
+				<div class="year_box">
+					<svg class="minus_year" width="15px" height="11px">
+						<use href="./images/icons.svg#pointer-up"></use>
+					</svg>
+					<p class="year"></p>
+					<svg class="plus_year" width="15px" height="11px">
+						<use href="./images/icons.svg#pointer-up"></use>
+					</svg>
+				</div>
+	
+				<div class="month_box">
+					<svg class="minus_month" width="15px" height="11px">
+						<use href="./images/icons.svg#pointer-up"></use>
+					</svg>
+					<p class="month"></p>
+					<svg class="plus_month" width="15px" height="11px">
+						<use href="./images/icons.svg#pointer-up"></use>
+					</svg>						
+				</div>
+			</div>
+		
+		
+		<div class="calendar">
+		<ul class="week">	
+			<li class="day_of_week">Su</li>						
+			<li class="day_of_week">Mo</li>
+			<li class="day_of_week">Tu</li>
+			<li class="day_of_week">We</li>
+			<li class="day_of_week">Th</li>
+			<li class="day_of_week">Fr</li>
+			<li class="day_of_week">Sa</li>
+								 
+		</ul>
+		<ul class="days_of_month"></ul>
+		</div>
+	</div>
+
+	</div>
+</div>
 
 </div>

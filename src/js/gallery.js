@@ -107,7 +107,7 @@ function fetchNews(dataNewsArr, newsContainer) {
                 </div>
                 <div class="card__footer">
                   <span class="card__date">${published_date}</span>
-                  <a class="card__ref" href="${url}" target="_blank"
+                  <a class="card__ref" target="_blank"
                   rel="noreferrer noopener">Read more</a>
                 </div>
                 </div>
@@ -124,11 +124,10 @@ function fetchNews(dataNewsArr, newsContainer) {
     )
     .join('');
   newsContainer.insertAdjacentHTML('beforeend', card);
-
-  // return card;
 }
 
 //--------------функція для рендера новин по категоріям!!-----------------
+
 
 // function renderCategoryCard(docs) {
 //   newsContainer.innerHTML = '';
@@ -171,6 +170,7 @@ function fetchNews(dataNewsArr, newsContainer) {
 //     )
 //     .join('');
 //   newsContainer.insertAdjacentHTML('beforeend', card);
+
 
 //   return card;
 // }
