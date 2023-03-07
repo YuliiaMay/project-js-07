@@ -62,7 +62,7 @@ function fetchNews(dataNewsArr, newsContainer) {
                 </div>
                 <div class="card__footer">
                   <span class="card__date">${published_date}</span>
-                  <a class="card__ref" href="${url}" target="_blank"
+                  <a class="card__ref" target="_blank"
                   rel="noreferrer noopener">Read more</a>
                 </div>
                 </div>
@@ -73,6 +73,7 @@ function fetchNews(dataNewsArr, newsContainer) {
     )
     .join('');
   newsContainer.insertAdjacentHTML('beforeend', card);
+
 
   // return card;
 }
@@ -87,6 +88,7 @@ function renderCategoryCard(docs) {
         let src = multimedia.length
           ? `https://static01.nyt.com/${multimedia[0].url}`
           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvFBa3G11OUBYADP7ouSBgwiiRzSYorF4dfg&usqp=CAU';
+  
         return `<div class="card" id="card">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${src}" alt="${source}" />

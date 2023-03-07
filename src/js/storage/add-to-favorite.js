@@ -50,3 +50,4 @@ export async function onBtnFavoriteClick(e) {
     console.log(error.message);
   }
 }
+
