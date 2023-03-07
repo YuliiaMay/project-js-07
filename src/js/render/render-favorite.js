@@ -27,7 +27,7 @@ function init() {
     }
     errorRef.classList.add('is-hidden');
     containerRef.classList.remove('is-hidden');
-    fetchNews(data, containerRef);
+    fetchNews(data);
     console.log(data);
   } catch (error) {
     console.log(error.message);

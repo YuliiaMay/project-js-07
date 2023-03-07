@@ -3,14 +3,15 @@ import Pagination from 'tui-pagination';
 import { fetchPopularNews } from '../gallery';
 
 const newsContainer = document.querySelector('.news__container');
+
 let pagination = undefined;
 const perPage = 6;
 
 async function paginate() {
-  await fetchPopularNews(perPage);
+  await fetchPopularNews();
 
   pagination = await new Pagination('pagination', {
-    totalItems: newsPaginationLength(),
+    totalItems: 20, //newsPaginationLength(),
 
     itemsPerPage: perPage,
     visiblePages: 3,
@@ -90,4 +91,4 @@ async function paginate() {
   });
 }
 
-// paginate();
+paginate();

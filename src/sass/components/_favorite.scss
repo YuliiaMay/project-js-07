@@ -12,6 +12,15 @@
 	}
 }
 
+.favorite__container{
+    display: flex;
+    gap: 32px;
+    row-gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
 .error {
 	padding: 40px 0 60px 0;
 	margin-left: auto;

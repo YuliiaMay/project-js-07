@@ -8,6 +8,7 @@ function onShowForm() {
   serchSvgEl.style.display = 'none';
 }
 
+
 (() => {
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.menu-open-btn');
@@ -16,6 +17,7 @@ function onShowForm() {
   const toggleMenu = () => {
     const isMenuOpen =
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
 
@@ -28,10 +30,14 @@ function onShowForm() {
   openMenuBtn.addEventListener('click', toggleMenu);
   closeMenuBtn.addEventListener('click', toggleMenu);
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+  window.matchMedia('(min-width: 768px)').addEventListener(
+    'change',
+    e => {
+
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+

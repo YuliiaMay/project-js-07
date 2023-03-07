@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { renderButtons, renderSelect } from '../render/render-filter';
-import { renderCategoryCard } from '../gallery';
+import { createObj, fetchNews, renderCategoryCard } from '../gallery';
 
 const baseUrlV2 = 'https://api.nytimes.com/svc/search/v2';
 const baseUrlV3 = 'https://api.nytimes.com/svc/news/v3';
 const key = '1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 const categoryUrl = '/content/section-list.json';
 const searchUrl = '/articlesearch.json';
+
+export const FILTERED_NEWS_URL = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
 
 let categoriesArray = [];
 
@@ -34,9 +36,10 @@ function onFilterCategories(event) {
 
   if (type === 'button') {
     event.target.classList.toggle('active');
-  } else {
-    event.target.classList.add('active');
   }
+  // } else {
+  //   event.target.classList.add('active');
+  // }
 
   const hasCategory = categoriesArray.includes(categoryName);
 
@@ -48,10 +51,12 @@ function onFilterCategories(event) {
   }
 
   localStorage.setItem(keyLocalStorage, JSON.stringify(categoriesArray));
+
   filterCategories()
     .then(docs => {
-      renderCategoryCard(docs);
+      return docs.map(article => createObj(article));
     })
+    .then(articles => fetchNews(articles))
     .catch(error => {
       /*в цьому місці поставити картинку заглушку якщо нічого не знайдено по категорії!
       після того як буде верстка!
@@ -61,7 +66,8 @@ function onFilterCategories(event) {
 }
 
 function getCategories() {
-  const url = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
+  let url = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
+
   return axios.get(url).then(response => {
     if (response.status !== 200) {
       throw new Error(response.status);
