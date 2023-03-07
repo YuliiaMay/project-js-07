@@ -73,9 +73,6 @@ function fetchNews(dataNewsArr, newsContainer) {
     )
     .join('');
   newsContainer.insertAdjacentHTML('beforeend', card);
-
-
-  // return card;
 }
 
 //--------------функція для рендера новин по категоріям!!-----------------
