@@ -1,20 +1,54 @@
 .card {
-  position: relative;
-  width: 395px;
-  height: 675px;
+  @media screen and (min-width: 320px) {
+    position: relative;
+    width: 289px;
+    height: 630px;
+    border: 1px solid rgb(207, 128, 18);
+  }
+  @media screen and (min-width: 768px) {
+    width: 353px;
+    height: 676px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 396px;
+    height: 675px;
+  }
+  // position: relative;
+  // width: 395px;
+  // height: 675px;
   // border: 1px solid green;
 }
 
 .wrap__img {
-  position: relative;
-  margin-bottom: 20px;
+  @media screen and (min-width: 320px) {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  // position: relative;
+  // margin-bottom: 20px;
 }
 
 .card__img {
-  display: block;
-  width: 395px;
-  height: 395px;
-  object-fit: fill;
+  @media screen and (min-width: 320px) {
+    display: block;
+    margin-bottom: 20px;
+    width: 288px;
+    height: 395px;
+    object-fit: fill;
+  }
+  @media screen and (min-width: 768px) {
+    width: 353px;
+    height: 395px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 395px;
+  }
+  // display: block;
+  // width: 395px;
+  // height: 395px;
+  // object-fit: fill;
 }
 
 .wrap,
@@ -30,85 +64,157 @@
 }
 
 .card__title {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.37;
-  letter-spacing: -0.01em;
+  @media screen and (min-width: 320px) {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.01em;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 44px;
+  }
 
-  color: #111321;
+  // font-family: 'Manrope';
+  // font-style: normal;
+  // font-weight: 700;
+  // font-size: 32px;
+  // line-height: 1.37;
+  // letter-spacing: -0.01em;
+
+  // color: #111321;
 }
 
 .card__description {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.37;
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    line-height: 19px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  // font-family: 'Manrope';
+  // font-style: normal;
+  // font-weight: 400;
+  // font-size: 16px;
+  // line-height: 1.37;
 
-  color: #111321;
+  // color: #111321;
 }
 
 .card__footer {
-  display: flex;
-  justify-content: space-between;
+  @media screen and (min-width: 320px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  // display: flex;
+  // justify-content: space-between;
 }
 
 .card__date {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.37;
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    line-height: 19px;
+    color: #a8a8a8;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  // font-family: 'Manrope';
+  // font-style: normal;
+  // font-weight: 400;
+  // font-size: 16px;
+  // line-height: 1.37;
 
-  text-align: right;
+  // text-align: right;
 
-  color: #a8a8a8;
+  // color: #a8a8a8;
 }
 
 .card__ref {
-  margin-right: 26px;
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    line-height: 19px;
+    color: #4440f7;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 21px;
+  }
+  // margin-right: 26px;
 
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.37;
+  // font-family: 'Manrope';
+  // font-style: normal;
+  // font-weight: 400;
+  // font-size: 16px;
+  // line-height: 1.37;
 
-  color: #4440f7;
+  // color: #4440f7;
 }
 
 .categories {
-  display: block;
-  padding: 4px 8px;
+  @media screen and (min-width: 320px) {
+    display: block;
+    padding: 4px 8px;
+    background: rgba(68, 64, 247, 0.7);
+    border-radius: 0px 4px 4px 0px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #ffffff;
 
-  background: rgba(68, 64, 247, 0.7);
-  border-radius: 0px 4px 4px 0px;
+    top: 40px;
+    left: 0;
+  }
+  // display: block;
+  // padding: 4px 8px;
 
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #ffffff;
+  // background: rgba(68, 64, 247, 0.7);
+  // border-radius: 0px 4px 4px 0px;
 
-  top: 40px;
-  left: 0;
+  // font-family: 'Manrope';
+  // font-style: normal;
+  // font-weight: 500;
+  // font-size: 12px;
+  // line-height: 16px;
+  // text-align: center;
+  // color: #ffffff;
+
+  // top: 40px;
+  // left: 0;
 }
 
 .read {
-  right: 31px;
-  top: 16px;
+  @media screen and (min-width: 320px) {
+    right: 31px;
+    top: 16px;
 
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
 
-  color: #00b912;
+    color: #00b912;
+  }
+  // right: 31px;
+  // top: 16px;
+
+  // font-family: 'Manrope';
+  // font-style: normal;
+  // font-weight: 400;
+  // font-size: 14px;
+  // line-height: 19px;
+
+  // color: #00b912;
 }
 
 .card__img.is-reading {
@@ -147,7 +253,6 @@
   display: none;
 }
 
-
 .favorite__text {
   padding: 6px 3px 6px 12px;
 }
@@ -166,15 +271,30 @@
   padding-right: 6px;
 }
 
-
 // .checked {
 //   fill: none;
 // }
 
 .news__card {
+  @media screen and (min-width: 320px) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 288px;
+    height: 215px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 353px;
+    height: 261px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 396px;
+    height: 260px;
+  }
   // border: 1px solid rgb(207, 128, 18);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 260px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // height: 260px;
 }
