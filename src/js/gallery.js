@@ -77,7 +77,6 @@ function createObj(response) {
     }
   }
 
-  // console.log(newObj);
   return newObj;
 }
 //!=====================================================
@@ -141,14 +140,15 @@ function fetchNews(dataNewsArr, newsContainer) {
 }
 
 function renderCards(page, perPage) {
-  let counter = 0;
   const renderedPageCount = page * perPage;
 
   for (let i = 0; i < card.length; i++) {
-    counter++;
-    if (counter >= renderedPageCount - perPage && card[counter] !== undefined) {
-      newsContainer.insertAdjacentHTML('beforeend', card[counter]);
-      console.log(card[counter]);
+    if (
+      i > renderedPageCount - perPage &&
+      card[i] !== undefined &&
+      i <= renderedPageCount
+    ) {
+      newsContainer.insertAdjacentHTML('beforeend', card[i]);
     }
   }
 }
