@@ -1,18 +1,24 @@
 import axios from 'axios';
 import { getDataFromLocalStorage, setDataToLocalStorage } from '../api/service';
-import { FILTERED_NEWS_URL } from '../main/filter-category'
+// import { FILTERED_NEWS_URL } from '../main/filter-category'
+// import { filterCategories } from "../main/filter-category";
+import SearchNewsApi from '../news-service';
 // import { fetchPopularNews } from '../storage/add-to-favorite'
 
 
-const READ_NEWS_KEY = 'read-news';
+const searchNewsApi = new SearchNewsApi();
+
+
+export const READ_NEWS_KEY = 'read-news';
 const gallery = document.querySelector('.news__gallery');
 
 // const uniqReadCardsArr = [];
 let readData = null;
 let readFiltredData = null;
+let readFoundData = null;
 
 
-
+// console.log(FILTERED_NEWS_URL);
 
 // const FILTERED_NEWS_URL = `https://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
@@ -47,7 +53,7 @@ async function onReadMoreClick(e) {
     if (e.target.nodeName !== 'A') {
         return;
     }
-    
+
     const uniqReadCardsArr = getDataFromLocalStorage(READ_NEWS_KEY);
 
 
@@ -56,30 +62,54 @@ async function onReadMoreClick(e) {
     // popular news ----------------------------
     const popularRes = await getPopularNews();
     readData = popularRes.results;
+    console.log(readData);
+
+    const date = new Date();
+    const currentDate = date.toLocaleString().slice(0, 10);
+    // const btnReadMore = e.target;
+    // btnReadMore.setAttribute('data-read', currentDate);
+
 
     const uniqPopReadCard = readData.find(({ id }) => Number(id) === Number(cardId));
+    uniqPopReadCard.day = currentDate;
+    console.log(uniqPopReadCard);
+
     if (uniqPopReadCard !== undefined) {
         if (uniqReadCardsArr.every(uniqPopReadCard => Number(cardId) !== Number(uniqPopReadCard.id))) {
             uniqReadCardsArr.push(uniqPopReadCard);
-            
+            setDataToLocalStorage(READ_NEWS_KEY, uniqReadCardsArr);
         }
     }
     
 
     // filtered news ----------------------------
-    const filteredRes = await getFilteredNews();
-    readFiltredData = filteredRes.response.docs;
-    console.log(readFiltredData);
-
-    const uniqFiltrReadCard = readFiltredData.find(({ id }) => Number(id) === Number(cardId));
-    if (uniqFiltrReadCard !== undefined) {
-        if (uniqReadCardsArr.every(readFiltredData => Number(cardId) !== Number(readFiltredData.id))) {
-            uniqReadCardsArr.push(readFiltredData);
-            // setDataToLocalStorage(READ_NEWS_KEY, uniqReadCardsArr);
-        }
-    }
+    // const filteredRes = await filterCategories();
+    // // const filteredRes = await getFilteredNews();
     
-    setDataToLocalStorage(READ_NEWS_KEY, uniqReadCardsArr);
+    // readFiltredData = filteredRes;
+    // console.log(filteredRes);
+    
+
+    // const uniqFiltrReadCard = readFiltredData.find(({ id }) => Number(id) === Number(cardId));
+    // console.log(Number(cardId));
+    // if (uniqFiltrReadCard !== undefined) {
+    //     if (uniqReadCardsArr.every(readFiltredData => Number(cardId) !== Number(readFiltredData.id))) {
+    //         uniqReadCardsArr.push(readFiltredData);
+    //         setDataToLocalStorage(READ_NEWS_KEY, uniqReadCardsArr);
+    //     }
+    // }
+    
+
+    
+    // news by search request ----------------------------
+    // const searchQueryRes = await getFoundNews();
+    // const searchQueryRes = searchNewsApi.searchNews()
+    //     .then(articles => articles.response)
+    
+    // console.log(searchQueryRes);
+    // readFoundData
+
+    
 
 
     
