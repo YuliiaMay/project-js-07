@@ -1,12 +1,9 @@
 <section class="read__section-page">
   <div class="container read__news-container">
 
-<div class="accordion is-hidden">
-  <div class="accordion-item">
-    <button class="accordion__date-btn">20/20/2023</button>
-    <div class="accordion__read-list">
-		</div>
-  </div>
+<div class="acc__container is-hidden container">
+
+    <div class="acc__gallery"></div>
 </div>
 
     <div class="undefined empty-response__container">
@@ -45,3 +42,9 @@
     </div>
 	</section>
 </div>
+
+
+
+      const accGallery = document.querySelrctor('acc__day-read-container')
+      accGallery.insertAdjacentHTML('beforeend', accMarckup);
+      getReadCard(savedReadsCardArr);
