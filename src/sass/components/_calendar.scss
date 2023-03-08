@@ -1,13 +1,6 @@
-// svg {
-// 	display: block;
-//  }
-
-.conteiner_filter {
-	display: flex;
-	flex-wrap: nowrap;	
-	justify-content: space-between;
-	
-}
+svg {
+	display: block;
+ }
 
 .is-hidden_open-close_svg {
 	display: none;
@@ -27,6 +20,10 @@
 	height: 31px;
 	border-radius: 20px;
 	border: 1px solid $input-border;
+	&:hover,
+	&:focus {
+		cursor: pointer;
+	}
 	
 	 // tablet
 	@media screen and (min-width: 768px) {
@@ -48,9 +45,7 @@
 
 .calendar_box_text {
 	display: none;
-	margin-right: 37px;
-
-	
+	margin-right: 37px;	
 
 	@media screen and (min-width: 1280px) {
     	display: block;
@@ -73,11 +68,10 @@
 	top: 50%;
 	transform: translateY(-50%);
 	fill: $background-color-accent;
-
 }
 
 .calendar_svg_is-activ {
-	fill: $background-color-light;	
+	fill: #fff;	
 }
 
 .open_calendar_svg{
@@ -86,9 +80,6 @@
 	top: 50%;
 	transform: translateY(-50%);
 	fill: #A2A2A2;
-
-
-
 }
 
 .close_calendar_svg {
@@ -97,9 +88,6 @@
 	top: 50%;
 	transform: translateY(-50%);
 	fill: #FFFFFF;
-
-
-
 }
 
 .close_calendar_svg_is-activ {
@@ -221,6 +209,10 @@
 	letter-spacing: 0.38px;
 
 	margin-bottom: 12px;
+	&:hover,
+	&:focus {
+		cursor: pointer;
+	}
 }
 
 .is-active_day {
