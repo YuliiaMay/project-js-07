@@ -1,5 +1,5 @@
 const banner = document.querySelector('.banner');
-const DELAY_BANNER = 10000;
+const DELAY_BANNER = 30000;
 const KEY_DATA_NOW = 'dateNowKey';
 
 let dateNow = Date.now();
