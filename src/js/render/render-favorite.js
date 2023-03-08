@@ -1,12 +1,10 @@
 import { getDataFromLocalStorage } from '../api/service';
 import { onBtnFavoriteClick } from '../storage/add-to-favorite';
 
-import { fetchNews } from '../gallery';
+import { createObj, fetchNews } from '../gallery';
 
 const containerRef = document.querySelector('.favorite__container');
 const errorRef = document.querySelector('.error');
-console.log(containerRef);
-console.log(145788);
 
 containerRef.addEventListener('click', onBtnFavoriteClick);
 containerRef.addEventListener('click', e => {
@@ -16,9 +14,9 @@ containerRef.addEventListener('click', e => {
   init();
 });
 
-function init() {
+async function init() {
   try {
-    const data = getDataFromLocalStorage('news');
+    const data = await getDataFromLocalStorage('news');
 
     if (!data.length) {
       errorRef.classList.remove('is-hidden');
@@ -27,8 +25,12 @@ function init() {
     }
     errorRef.classList.add('is-hidden');
     containerRef.classList.remove('is-hidden');
-    fetchNews(data);
-    console.log(data);
+    const arr = await data.map(article => createObj(article));
+
+    const refCard = document.querySelectorAll('.card');
+    refCard.forEach(e => e.remove());
+
+    fetchNews(arr, containerRef);
   } catch (error) {
     console.log(error.message);
   }

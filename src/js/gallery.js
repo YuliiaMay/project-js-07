@@ -1,21 +1,37 @@
 import axios from 'axios';
 import { getDataFromLocalStorage } from './api/service';
+import { paginate, getPerPage } from './main/pagination';
+
+let perPage = getPerPage();
 
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
 const QUERY_NEWS_URL =
   'https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=20230301&end_date=20230306&page=0&facet=false&facet_fields=news_desk&facet_filter=false&q=cat&api-key=1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 
+const iconPath = new URL('../images/icons.svg', import.meta.url);
 const newsContainer = document.querySelector('.news__container');
+let card = [];
 
-async function fetchPopularNews() {
+// async function fetchPopularNews() {
+//   try {
+//     let dataNews = await axios.get(POPULAR_NEWS_URL);
+//     const arr = dataNews.data.results.map(article => createObj(article));
+//     fetchNews(arr, newsContainer);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+
+function fetchPopularNews() {
   try {
-    let dataNews = await axios.get(POPULAR_NEWS_URL);
-    const arr = dataNews.data.results.map(article => createObj(article));
+    return axios.get(POPULAR_NEWS_URL);
+  } catch {}
+}
 
-    fetchNews(arr);
-  } catch (error) {
-    console.log(error.message);
-  }
+async function start() {
+  const dataNews = await fetchPopularNews();
+  const arr = dataNews.data.results.map(article => createObj(article));
+  fetchNews(arr, newsContainer);
 }
 
 //!=====================================================
@@ -66,26 +82,15 @@ function createObj(response) {
 }
 //!=====================================================
 
-function fetchNews(dataNewsArr) {
-  const refCard = document.querySelectorAll('.card');
-  refCard.forEach(e => e.remove());
-
+function fetchNews(dataNewsArr, newsContainer) {
+  card = [];
   const dataArray = getDataFromLocalStorage('news');
   const arrayId = dataArray.map(({ id }) => id);
 
-  const card = dataNewsArr
-    .map(
-      ({
-        id,
-        media,
-        source,
-        title,
-        abstract,
-        published_date,
-        url,
-        section,
-      }) => {
-        return `<div class="card" data-id="${id}">
+  card = dataNewsArr.map(
+    ({ id, media, source, title, abstract, published_date, section }) => {
+      return [
+        `<div class="card" data-id="${id}">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${media}" alt="${source}" />
                   <button type="button" class="item-news__add-to-favorite ${
@@ -121,18 +126,33 @@ function fetchNews(dataNewsArr) {
                 <div class="read visually-hidden">
                   <span class="read__main">Already read</span>
                   <svg class="read__main-icon">
-                      <use class="icon" href="/icons.adfc4680.svg#done"></use>
+                      <use class="icon" href="${iconPath}#done""></use>
                   </svg>
                 </div>                
-              </div>`;
-      }
-    )
-    .join('');
-  newsContainer.insertAdjacentHTML('beforeend', card);
+              </div>`,
+      ];
+    }
+  );
+
+  // .join('');
+  for (let i = 0; i < perPage && i < card.length; i++) {
+    newsContainer.insertAdjacentHTML('beforeend', card[i]);
+  }
 }
 
+function renderCards(page, perPage) {
+  let counter = 0;
+  const renderedPageCount = page * perPage;
 
-function renderCards() {}
+  for (let i = 0; i < card.length; i++) {
+    counter++;
+    if (counter >= renderedPageCount - perPage && card[counter] !== undefined) {
+      newsContainer.insertAdjacentHTML('beforeend', card[counter]);
+      console.log(card[counter]);
+    }
+  }
+}
 
-export { fetchNews, fetchPopularNews, createObj };
+paginate(start);
 
+export { fetchNews, fetchPopularNews, createObj, renderCards };
