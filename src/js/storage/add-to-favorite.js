@@ -10,9 +10,9 @@ const galleryEl = document.querySelector('.news__gallery');
 console.log(galleryEl);
 //////////////////////////////////////
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
-async function fetchPopularNews() {
+async function fetchFavoriteNews() {
   let { data } = await axios.get(POPULAR_NEWS_URL);
-  console.log(data);
+
   return data;
 }
 ///////////////////////////////////
@@ -39,7 +39,7 @@ export async function onBtnFavoriteClick(e) {
       newsArray.splice(indexElem, 1);
     } else {
       if (!dataFavorite) {
-        const { results } = await fetchPopularNews();
+        const { results } = await fetchFavoriteNews();
         dataFavorite = results;
       }
       const obj = dataFavorite.find(({ id }) => Number(id) === Number(idCard));
@@ -50,4 +50,3 @@ export async function onBtnFavoriteClick(e) {
     console.log(error.message);
   }
 }
-

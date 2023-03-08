@@ -1,17 +1,25 @@
 import Pagination from 'tui-pagination';
-
-import { fetchPopularNews } from '../gallery';
-
-const newsContainer = document.querySelector('.news__container');
+import { renderCards } from '../gallery';
 
 let pagination = undefined;
-const perPage = 6;
 
-async function paginate() {
-  await fetchPopularNews();
+function getPerPage() {
+  let perPage;
+  if (window.matchMedia('(max-width: 767.98px)').matches) {
+    return (perPage = 4);
+  } else if (window.matchMedia('(min-width: 1280px)').matches) {
+    return (perPage = 8);
+  } else if (window.matchMedia('(min-width: 768px)').matches) {
+    return (perPage = 7);
+  }
+}
+let perPage = getPerPage();
+
+async function paginate(fetchNews, countArticles = 30) {
+  await fetchNews();
 
   pagination = await new Pagination('pagination', {
-    totalItems: 20, //newsPaginationLength(),
+    totalItems: countArticles,
 
     itemsPerPage: perPage,
     visiblePages: 3,
@@ -91,4 +99,4 @@ async function paginate() {
   });
 }
 
-paginate();
+export { paginate, getPerPage };
