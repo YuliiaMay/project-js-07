@@ -98,22 +98,22 @@ svg {
 	position: absolute;
 	z-index: -1;
 	opacity: 0;
-	right: 0;	
+	right: 0;
 	padding: 27px 16px 8px;
 	width: 250px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 	box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 	background: #F8F8F8;
-	visibility: hidden;
-	transform: translateY(-100%);
-	transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms ease-in-out cubic-bezier(0.4, 0, 0.2, 1);
+	
+	transform: translateY(-101%);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
 .calendar_wrapper_open {
 	z-index: 1;
 	opacity: 1;
-	visibility: visible;
+	
 	transform: translateY(-1);
 }
  .year_box {	
@@ -199,8 +199,11 @@ svg {
  }
 
  .days_of_month li {
-	width: calc(100% / 7);
+	width: 25px;
+	margin-left: 5px;
+	margin-right: 5.703px;
 	text-align: center;
+
 
 	font-family: $main-text-font;
 	font-weight: 500;
@@ -216,7 +219,8 @@ svg {
 }
 
 .is-active_day {
-	background-color: #9B59B6;
+	background-color: $background-color-accent;
+	border-radius: 50%;
 	
 }
 

@@ -13,6 +13,7 @@ const dayUl = document.querySelector('.days_of_month');
 const calendarInput = document.querySelector('.calendar_input');
 const calendarSvg = document.querySelector('.calendar_svg');
 
+
 const months = ["January", "February", "March", "April", "May", "June", "July",
  "August", "September", "October", "November", "December"];
 const date = new Date();
@@ -172,7 +173,7 @@ dayUl.addEventListener('click', onClick);
 function onClick(e) {
 	const liClass = e.target;
 	
-	if(liClass.tagName != 'LI') {
+	if(liClass.classList[0] != 'current-month') {
 		return;
 	}
 
@@ -186,7 +187,12 @@ function onClick(e) {
 	calendarMonthValue = addLeadingZero(calendarMonth + 1);
 	calendarYearValue = yearScrin.textContent;
 	calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
-	liClass.classList.add('is-active_day');	
+	liClass.classList.add('is-active_day');
+	calendarSvg.classList.remove('calendar_svg_is-activ');
+	calendarInput.classList.remove('calendar_input_is-activ');
+	closeCalendar.classList.add('is-hidden_open-close_svg');
+	openCalendar.classList.remove('is-hidden_open-close_svg');
+	calendarWrepper.classList.remove('calendar_wrapper_open');	
 }
 
 function addLeadingZero(value) {
