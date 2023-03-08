@@ -7,6 +7,7 @@ const baseUrlV3 = 'https://api.nytimes.com/svc/news/v3';
 const key = '1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 const categoryUrl = '/content/section-list.json';
 const searchUrl = '/articlesearch.json';
+const newsContainer = document.querySelector('.news__container');
 
 export const FILTERED_NEWS_URL = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
 
@@ -54,9 +55,12 @@ function onFilterCategories(event) {
 
   filterCategories()
     .then(docs => {
+      const refCard = document.querySelectorAll('.card');
+      refCard.forEach(e => e.remove());
+
       return docs.map(article => createObj(article));
     })
-    .then(articles => fetchNews(articles))
+    .then(articles => fetchNews(articles, newsContainer))
     .catch(error => {
       /*в цьому місці поставити картинку заглушку якщо нічого не знайдено по категорії!
       після того як буде верстка!
