@@ -4,9 +4,7 @@ import { getDataFromLocalStorage, setDataToLocalStorage } from '../api/service';
 // ===========================================//
 
 const galleryEl = document.querySelector('.news__gallery');
-// const favoriteSection = document.querySelector('.favorite__section');
-// const favoriteList = document.querySelector('.favorite__container');
-// const errorCard = document.querySelector('.error');
+
 console.log(galleryEl);
 //////////////////////////////////////
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
