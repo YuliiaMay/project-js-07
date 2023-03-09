@@ -4,8 +4,44 @@
       <!-- <button class="weather__btn">weather for week</button> -->
       <!-- <button class="weather__btn--day">weather for day</button> -->
     </div>
+    
   </div>
 </section>
-
+<section>
+  <div class="empty-search container is-hidden">
+    <p class="undefined__title">We haven’t found news from <br>this category</br></p>
+    <picture>
+    <source
+      srcset="
+        /src/images/error-image/error-1x-dekstop-min.png 1x,
+        /src/images/error-image/error-2x-dekstop-min.png 2x
+      "
+      type="image/png"
+      media="(min-width: 1280px)"
+    />
+    <source
+      srcset="
+        /src/images/error-image/error-1x-tab-min.png 1x,
+        /src/images/error-image/error-2x-tab-min.png 2x
+      "
+      type="image/png"
+      media="(min-width: 768px)"
+    />
+    <source
+      srcset="
+        /src/images/error-image/error-1x-mob-min.png 1x,
+        /src/images/error-image/error-2x-mob-min.png 2x
+      "
+      type="image/png"
+      media="(mix-width: 480px)"
+    />
+    <img
+      class="error__picture"
+      src="/src/images/error-image/error-image.min.png"
+      alt="error picture"
+    />
+  </picture>
+</div>
+</section>
 
 <a href="https://sinoptik.ua/" target="_blank"></a>
