@@ -1,62 +1,71 @@
 import axios from 'axios';
 import { renderButtons, renderSelect } from '../render/render-filter';
 import { createObj, fetchNews, renderCategoryCard } from '../gallery';
+import getDateAndCategoryNews from './calander-and-categories-api';
 
-const baseUrlV2 = 'https://api.nytimes.com/svc/search/v2';
 const baseUrlV3 = 'https://api.nytimes.com/svc/news/v3';
 const key = '1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 const categoryUrl = '/content/section-list.json';
-const searchUrl = '/articlesearch.json';
 const newsContainer = document.querySelector('.news__container');
-
-export const FILTERED_NEWS_URL = `${baseUrlV3}${categoryUrl}?api-key=${key}`;
+const notFound = document.querySelector('.empty-res');
 
 let categoriesArray = [];
 
-const keyLocalStorage = 'selected-categories';
+const KEY_LOCAL_STORAGE = 'selected-categories';
 
 setDefaultParams();
 
 /*заміникти на правильну назву ключа, правильну назву взяти у того хто робить календар!
 видалити значення з 18 по 20 радок!
 */
-const selectedDateKey = 'selected-date';
+const SELECTED_DATE_KEY = 'selected-date';
 
-let date = new Date('December 25, 2022 23:15:30');
-let day = date.getTime();
+function onFilterCategoriesChange(event) {
+  onFilterCategories(event);
+}
 
-localStorage.setItem(selectedDateKey, day);
-
-const filtersContainer = document.querySelector('.category__filter-container');
-
-filtersContainer.addEventListener('click', onFilterCategories);
+function onFilterCategoriesClick(event) {
+  onFilterCategories(event);
+}
 
 function onFilterCategories(event) {
+  // для того щоб можна було вибрати тільки 1 значення
+  const buttonsName = document.querySelectorAll('.category__filter-btn');
+
+  buttonsName.forEach(button => {
+    button.classList.remove('active');
+  });
+
   let categoryName = event.target.value;
   let type = event.target.dataset.type;
 
   if (type === 'button') {
     event.target.classList.toggle('active');
   }
-  // } else {
-  //   event.target.classList.add('active');
-  // }
 
   const hasCategory = categoriesArray.includes(categoryName);
 
   if (!hasCategory) {
+    // дає вибирати тільки 1 значення фільтра
+    categoriesArray = [];
+
     categoriesArray.push(categoryName);
   } else {
     const categoryIndex = categoriesArray.indexOf(categoryName);
     categoriesArray.splice(categoryIndex, 1);
   }
 
-  localStorage.setItem(keyLocalStorage, JSON.stringify(categoriesArray));
+  localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(categoriesArray));
 
-  filterCategories()
+  const selectedDate = localStorage.getItem(SELECTED_DATE_KEY) || '';
+
+  getDateAndCategoryNews(selectedDate, categoryName)
     .then(docs => {
       const refCard = document.querySelectorAll('.card');
       refCard.forEach(e => e.remove());
+
+      notFound.classList.add('is-hidden');
+      newsContainer.style.display = 'flex';
 
       return docs.map(article => createObj(article));
     })
@@ -65,6 +74,8 @@ function onFilterCategories(event) {
       /*в цьому місці поставити картинку заглушку якщо нічого не знайдено по категорії!
       після того як буде верстка!
       */
+      notFound.classList.remove('is-hidden');
+      newsContainer.style.display = 'none';
       console.log(error);
     });
 }
@@ -80,41 +91,13 @@ function getCategories() {
   });
 }
 
-function filterCategories() {
-  const categoriesValue = JSON.parse(localStorage.getItem(keyLocalStorage));
-  if (!categoriesValue) {
-    return;
-  }
-  const selectedDate = localStorage.getItem(selectedDateKey);
-
-  let searchWord;
-  let params;
-
-  if (selectedDate) {
-    params = `&pub_date=${selectedDate}`;
-  }
-
-  if (categoriesValue.length !== 0) {
-    searchWord = categoriesValue.join(', ');
-  } else {
-    searchWord = 'Business';
-  }
-  const url = `${baseUrlV2}${searchUrl}?api-key=${key}&fq=news_desk:(${searchWord})${params}`;
-  return axios.get(url).then(response => {
-    if (response.status !== 200 || response.data.response.docs.length === 0) {
-      throw new Error(response.status);
-    }
-    return response.data.response.docs;
-  });
-}
-
 function setDefaultParams() {
   getCategories()
     .then(categories => {
-      const categriesButtons = categories.slice(0, 6);
+      const categoriesButtons = categories.slice(0, 6);
       const categoriesSelect = categories.slice(6);
 
-      categriesButtons.map(button => {
+      categoriesButtons.map(button => {
         renderButtons(button);
         //щоб залишити активні кнопки при перезагрузці
 
@@ -139,23 +122,10 @@ function setDefaultParams() {
     })
     .finally(() => {
       //очищення локал стореджа якщо не потрібно залишати активні кнопки при перезагрузці
-      localStorage.removeItem(keyLocalStorage);
+      localStorage.removeItem(KEY_LOCAL_STORAGE);
+      localStorage.removeItem(SELECTED_DATE_KEY);
       categoriesArray = [];
     });
-
-  const categoriesValue = JSON.parse(localStorage.getItem(keyLocalStorage));
-
-  if (categoriesValue && categoriesValue.length !== 0) {
-    searchWord = categoriesValue.join(', ');
-    categoriesArray = [...categoriesValue];
-
-    const url = `${baseUrlV2}${searchUrl}?api-key=${key}&fq=news_desk:(${searchWord})`;
-
-    return axios.get(url).then(response => {
-      if (response.status !== 200 || response.data.response.docs.length === 0) {
-        throw new Error(response.status);
-      }
-      return response.data.response.docs;
-    });
-  }
 }
+
+export { onFilterCategoriesClick, onFilterCategoriesChange };
