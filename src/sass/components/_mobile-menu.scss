@@ -19,17 +19,17 @@
 	transition-duration: $transition-duration;
 	transition-timing-function: $transition-timing-function;
 
-	@media screen and (min-width: 320px) {
-		display: none;
-	}
+	// @media screen and (max-width: 320px) {
+	// 	display: none;
+	// }
 
 	&.is-open {
+		// display: flex;
 		transform: translateX(0);
 	}
 
 	.mob-menu_header {
 		padding: 24px 16px;
-		margin: 8px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -98,6 +98,9 @@
 		.nav__link--current {
 			background: #4440f6;
 			color: #fff;
+			.arrow {
+				fill: #fff;
+			}
 		}
 	}
 
