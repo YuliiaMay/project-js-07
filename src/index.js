@@ -8,7 +8,7 @@ import './js/storage/save-data';
 import './js/loader';
 import './js/adv';
 import './js/nav';
-import './js/main/calander';
+import './js/main/calander-and-categories-api';
 import './js/main/filter-category.js';
 import './js/main/filter-data';
 import './js/main/pagination';
