@@ -4,9 +4,6 @@ import { getCard } from '../gallery';
 export const READ_NEWS_KEY = 'read-news';
 const gallery = document.querySelector('.news__gallery');
 
-let readData = null;
-let readFiltredData = null;
-let readFoundData = null;
 
 // перевірка чи клік у межах галереї статтей
 if (gallery) {
@@ -24,18 +21,23 @@ async function onReadMoreClick(e) {
 
   const readData = getCard();
 
+
+    
   const date = new Date();
   const currentDate = date.toLocaleString().slice(0, 10);
 
   const uniqPopReadCard = readData.find(
     ({ id }) => String(id) === String(cardId)
-  );
+    );
+    
+    console.log(uniqPopReadCard);
+    console.log(uniqReadCardsArr);
 
   uniqPopReadCard['day'] = currentDate;
 
-  if (uniqPopReadCard !== undefined) {
+//   if (uniqPopReadCard !== undefined) {
     if (
-      uniqReadCardsArr.every(
+      readData.every(
         uniqPopReadCard => String(cardId) !== String(uniqPopReadCard.id)
       )
     ) {
@@ -43,4 +45,4 @@ async function onReadMoreClick(e) {
       setDataToLocalStorage(READ_NEWS_KEY, uniqReadCardsArr);
     }
   }
-}
+// }
