@@ -1,11 +1,7 @@
-<section class="read__section-page">
-  <div class="container read__news-container">
+<section class="read-main">
+  <div class="read__container container">
 
-<div class="acc__container is-hidden container">
-
-    <div class="acc__gallery"></div>
-</div>
-
+  <!-- користувач статті не читали -->
     <div class="undefined empty-response__container">
       <p class="undefined__title">We haven’t found news from <br>this category</br></p>
       <picture>
@@ -40,11 +36,20 @@
         />
       </picture>
     </div>
-	</section>
-</div>
 
+  <!-- є прочитані статті користувачем -->
+    <div class="acc__container is-hidden container">
+      <!-- блок статей прочитаних в один день -->
+      <div class="acc__day-block">
+        <div class="acc__item">
+          <!-- рендер кнопки -->
+        </div>
 
+        <div class="acc__gallery">
+          <!-- рендер карток -->
+        </div>
+      </div>
+    </div>
 
-      const accGallery = document.querySelrctor('acc__day-read-container')
-      accGallery.insertAdjacentHTML('beforeend', accMarckup);
-      getReadCard(savedReadsCardArr);
+  </div>
+</section>

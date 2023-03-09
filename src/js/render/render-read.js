@@ -12,6 +12,9 @@ const iconPath = new URL('/src/images/icons.svg', import.meta.url);
 const accContainer = document.querySelector('.acc__container');
 const emptyContainer = document.querySelector('.empty-response__container');
 const accGallery = document.querySelector('.acc__gallery');
+const dayContainer = document.querySelector('.acc__day-block');
+
+
 
 let dates = [];
 let uniqAccordionDays = [];
@@ -65,7 +68,7 @@ function getUniqueDaysOfReading(savedReadsCardArr) {
   
   // масив дат для контейнерів аккардеону
   uniqAccordionDays = Array.from(new Set(dates));
-  console.log(uniqAccordionDays);
+  // console.log(uniqAccordionDays);
   return uniqAccordionDays;
 }
 
@@ -88,7 +91,7 @@ function createAcc(savedReadsCardArr) {
   const accMarckup = savedReadsCardArr
         .map(el => {
           return `<div class="acc-item">
-                    <div class="acc__date-btn">08.03.2023</div>
+                    <button class="acc__date-btn">08.03.2023</button>
                   </div>`
         })
         .join('');
@@ -109,9 +112,8 @@ function getReadCard(savedReadsCardArr) {
   readMarkupCard = savedReadsCardArr
     .map(({ media, source, title, abstract, published_date, url, section, id }) => {
       let src = media.map(media => media['media-metadata'][2].url);
-      console.log(src);
         
-      return `<div class="card" data-id="${id}">
+      return `<div class="card acc__card" data-id="${id}">
                 <div class="wrap__img">
                   <img class="card__img is-reading" src="${media}" alt="${source}" />
                   <button type="button" class="item-news__add-to-favorite>
@@ -152,9 +154,27 @@ function getReadCard(savedReadsCardArr) {
           .join('');
 
 
-      accGallery.insertAdjacentHTML('beforebegin', readMarkupCard)
+      accGallery.insertAdjacentHTML('beforeend', readMarkupCard)
       return readMarkupCard;
   // }
     
   }
 
+
+
+
+
+  // -------------- events
+
+accContainer.addEventListener('click', activeAccGallery);
+
+function activeAccGallery(e) {
+  const accBtn = e.target;
+
+  
+  accBtn.classList.toggle('active');
+  accGallery.classList.toggle('active');
+  
+  
+
+}
