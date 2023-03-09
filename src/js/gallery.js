@@ -3,25 +3,15 @@ import { getDataFromLocalStorage } from './api/service';
 import { paginate, getPerPage } from './main/pagination';
 
 let perPage = getPerPage();
+let cards = [];
 
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
-const QUERY_NEWS_URL =
-  'https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=20230301&end_date=20230306&page=0&facet=false&facet_fields=news_desk&facet_filter=false&q=cat&api-key=1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
+// const QUERY_NEWS_URL =
+//   'https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=20230301&end_date=20230306&page=0&facet=false&facet_fields=news_desk&facet_filter=false&q=cat&api-key=1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
 
 const iconPath = new URL('../images/icons.svg', import.meta.url);
 const newsContainer = document.querySelector('.news__container');
 let card = [];
-
-
-// async function fetchPopularNews() {
-//   try {
-//     let dataNews = await axios.get(POPULAR_NEWS_URL);
-//     const arr = dataNews.data.results.map(article => createObj(article));
-//     fetchNews(arr, newsContainer);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
 
 function fetchPopularNews() {
   try {
@@ -46,7 +36,6 @@ const objKeys = {
   published_date: ['published_date', 'pub_date', 'pub_date'],
   url: ['url', 'web_url', 'url'],
   section: ['section', 'section_name', 'section_name'],
-  day: ['day']
 };
 
 function createObj(response) {
@@ -83,13 +72,14 @@ function createObj(response) {
 }
 //!=====================================================
 
-function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
+function fetchNews(dataNewsArr, newsContainer) {
   card = [];
   const dataArray = getDataFromLocalStorage('news');
   const arrayId = dataArray.map(({ id }) => id);
 
+  cards = dataNewsArr.map(card => card);
   card = dataNewsArr.map(
-    ({ id, media, source, title, abstract, published_date, section, url }) => {
+    ({ id, media, source, title, abstract, published_date, section }) => {
       return [
         `<div class="card" data-id="${id}">
                 <div class="wrap__img">
@@ -118,7 +108,7 @@ function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
                 </div>
                 <div class="card__footer">
                   <span class="card__date">${published_date}</span>
-                  <a class="card__ref" target="_blank" href="${url}"
+                  <a class="card__ref" target="_blank"
                   rel="noreferrer noopener">Read more</a>
                 </div>
                 </div>
@@ -127,7 +117,7 @@ function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
                 <div class="read visually-hidden">
                   <span class="read__main">Already read</span>
                   <svg class="read__main-icon">
-                      <use class="icon" href="${iconPath}#done"></use>
+                      <use class="icon" href="${iconPath}#done""></use>
                   </svg>
                 </div>                
               </div>`,
@@ -135,15 +125,9 @@ function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
     }
   );
 
-
-  // .join('');
-  if (isTrue) {
-    for (let i = 0; i < perPage && i < card.length; i++) {
-      newsContainer.insertAdjacentHTML('beforeend', card[i]);
-    }
+  for (let i = 0; i < perPage && i < card.length; i++) {
+    newsContainer.insertAdjacentHTML('beforeend', card[i]);
   }
-  
-  return card;
 }
 
 function renderCards(page, perPage) {
@@ -159,7 +143,10 @@ function renderCards(page, perPage) {
     }
   }
 }
+function getCard() {
+  return cards;
+}
 
 paginate(start);
 
-export { fetchNews, fetchPopularNews, createObj, renderCards };
+export { fetchNews, fetchPopularNews, createObj, renderCards, getCard };
