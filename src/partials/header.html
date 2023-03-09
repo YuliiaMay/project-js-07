@@ -1,7 +1,6 @@
 <header class="header">
   <div class="container header-container">
     <a href="/src/index.html" class="logo">News</a>
-
     <nav class="navbar">
       <ul class="nav__list">
         <li class="nav__item">
@@ -15,8 +14,7 @@
         </li>
       </ul>
     </nav>
-
-    <form id='search-form'class="search__form is-open" data-search-form>
+    <form id="search-form" class="search__form is-open" data-search-form>
       <label class="search__label">
         <input
           class="search__input"
@@ -34,127 +32,42 @@
       </label>
     </form>
 
-	 
-
     <div class="theme-switch">
-      <span id ='span-light' class="theme-switch__light-on-light">Light</span>
-       <svg class="theme_icon-sun" width="19" height="19">
+      <span id="span-light" class="theme-switch__light-on-light">Light</span>
+      <svg class="theme_icon-sun" width="19" height="19">
         <use href="/src/images/icons.svg#sun"></use>
       </svg>
-       <label id="swith_label" class="switch-light">
-          <input type="checkbox" class="switch__input" data-theme="">
-          <span id="switch_slider"class="switch__slider-light"></span>
-        </label>
+      <label id="swith_label" class="switch-light">
+        <input type="checkbox" class="switch__input" data-theme="" />
+        <span id="switch_slider" class="switch__slider-light"></span>
+      </label>
       <svg class="theme_icon-moon" width="19" height="19">
         <use href="/src/images/icons.svg#moon" class="theme_icon-moon"></use>
       </svg>
       <span id="span-dark" class="theme-switch__dark-on-light">Dark</span>
     </div>
 
-	 
-<div class="search-mobile__container">
-	<button id='search-mobile-btn'class="search__btn mobile" data-search-btn>
-          <svg  id="search-svg"class="search__btn-mobile" width="20" height="20">
-            <use href="/src/images/icons.svg#search"></use>
-          </svg>
-        </button>
-    <button
-      type="button"
-      aria-label="Перемикач мобільного меню"
-      class="button menu-open-btn"
-      data-menu-open
-    >
-      <svg class="menu-open">
-        <use
-          href="/src/images/icons.svg#menu"
-          class="icon-menu"
-          width="24"
-          height="24"
-        ></use>
-      </svg>
-    </button>
-</div>
-    
-    <div class="mob-menu__container js-menu-container" data-menu>
-    <div class="mob-menu_header">
-      <a href="/src/index.html" class="logo">News</a>
-
-      <button type="button" class="menu-close-btn" data-menu-close>
-        <svg class="menu-close" width="24" height="24">
-          <use href="/src/images/icons.svg#close" class="icon-close"></use>
+    <div class="search-mobile__container">
+      <button id="search-mobile-btn" class="search__btn mobile" data-search-btn>
+        <svg id="search-svg" class="search__btn-mobile" width="20" height="20">
+          <use href="/src/images/icons.svg#search"></use>
         </svg>
       </button>
-    </div>
-    <nav class="mob-navbar">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="/src/index.html" class="nav__link">
-            <svg>
-              <use
-                href="/src/images/icons.svg#home"
-                width="32"
-                height="32"
-              ></use>
-            </svg>
-            Home
-            <svg class="arrow">
-              <use
-                href="/src/images/icons.svg#right"
-                width="24"
-                height="24"
-              ></use>
-            </svg>
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="/src/favorite.html" class="nav__link">
-            <svg>
-              <use
-                href="/src/images/icons.svg#icon-heart"
-                width="32"
-                height="32"
-              ></use>
-            </svg>
-            Favorite
-            <svg class="arrow">
-              <use
-                href="/src/images/icons.svg#right"
-                width="24"
-                height="24"
-              ></use>
-            </svg>
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="/src/read.html" class="nav__link">
-            <svg>
-              <use
-                href="/src/images/icons.svg#read"
-                width="32"
-                height="32"
-              ></use>
-            </svg>
-            Read
-            <svg class="arrow">
-              <use
-                href="/src/images/icons.svg#right"
-                width="24"
-                height="24"
-              ></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="theme-switch theme-switch-mob">
-      <span class="theme-switch__light-on">Light</span>
-      <div class="theme-switch__slider-conteiner">
-        <svg class="theme-switch__icon-slider" width="16" height="16">
-          <use href="/src/images/icons.svg#icon-round"></use>
+      <button
+        type="button"
+        aria-label="Перемикач мобільного меню"
+        class="button menu-open-btn"
+        data-menu-open
+      >
+        <svg class="menu-open">
+          <use
+            href="/src/images/icons.svg#menu"
+            class="icon-menu"
+            width="24"
+            height="24"
+          ></use>
         </svg>
-      </div>
-      <span class="theme-switch__dark-on">Dark</span>
+      </button>
     </div>
   </div>
 </header>

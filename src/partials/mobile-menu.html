@@ -1,4 +1,4 @@
-<!-- <div class="mob-menu__container js-menu-container" data-menu>
+<div class="mob-menu__container js-menu-container" data-menu>
   <div class="mob-menu_header">
     <a href="/src/index.html" class="logo">News</a>
 
@@ -8,7 +8,6 @@
       </svg>
     </button>
   </div>
-
   <nav class="mob-navbar">
     <ul class="nav__list">
       <li class="nav__item">
@@ -17,9 +16,9 @@
             <use href="/src/images/icons.svg#home" width="32" height="32"></use>
           </svg>
           Home
-          <svg>
+          <svg class="arrow">
             <use
-              href="/src/images/icons.svg#pointer-down"
+              href="/src/images/icons.svg#right"
               width="24"
               height="24"
             ></use>
@@ -30,15 +29,15 @@
         <a href="/src/favorite.html" class="nav__link">
           <svg>
             <use
-              href="/src/images/icons.svg#empty-heart"
+              href="/src/images/icons.svg#icon-heart"
               width="32"
               height="32"
             ></use>
           </svg>
-          Home
-          <svg>
+          Favorite
+          <svg class="arrow">
             <use
-              href="/src/images/icons.svg#pointer-down"
+              href="/src/images/icons.svg#right"
               width="24"
               height="24"
             ></use>
@@ -50,10 +49,10 @@
           <svg>
             <use href="/src/images/icons.svg#read" width="32" height="32"></use>
           </svg>
-          Home
-          <svg>
+          Read
+          <svg class="arrow">
             <use
-              href="/src/images/icons.svg#pointer-down"
+              href="/src/images/icons.svg#right"
               width="24"
               height="24"
             ></use>
@@ -64,12 +63,18 @@
   </nav>
 
   <div class="theme-switch theme-switch-mob">
-    <span class="theme-switch__light-on">Light</span>
-    <div class="theme-switch__slider-conteiner">
-      <svg class="theme-switch__icon-slider" width="16" height="16">
-        <use href="/src/images/icons.svg#icon-round"></use>
-      </svg>
-    </div>
-    <span class="theme-switch__dark-on">Dark</span>
+    <span id="span-light" class="theme-switch__light-on-light">Light</span>
+    <svg class="theme_icon-sun" width="19" height="19">
+      <use href="/src/images/icons.svg#sun"></use>
+    </svg>
+    <label id="swith_label" class="switch-light">
+      <input type="checkbox" class="switch__input" data-theme="" />
+      <span id="switch_slider" class="switch__slider-light"></span>
+    </label>
+    <svg class="theme_icon-moon" width="19" height="19">
+      <use href="/src/images/icons.svg#moon" class="theme_icon-moon"></use>
+    </svg>
+    <span id="span-dark" class="theme-switch__dark-on-light">Dark</span>
   </div>
-</div> -->
+  
+</div>
