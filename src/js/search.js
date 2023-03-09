@@ -24,18 +24,14 @@ function onFormSubmit(event) {
       .then(articles => { 
         return articles.response.docs.map(newsArr => newsArr)})
       .then(data => {
-        console.log(data);
         return data.map(article => createObj(article))})
-
       .then(arr => {
-        console.log(arr);
         const refCard = document.querySelectorAll('.card');
         refCard.forEach(e => e.remove());
         errorContainer.classList.add("is-hidden");
         weatherContainer.classList.remove("is-hidden");
         pagination.classList.remove("is-hidden");
         fetchNews(arr, newsContainer);
-
       })
       .catch(error => {
         const refCard = document.querySelectorAll('.card');
@@ -43,7 +39,6 @@ function onFormSubmit(event) {
         errorContainer.classList.remove("is-hidden");
         weatherContainer.classList.add("is-hidden");
         pagination.classList.add("is-hidden");
-
       });
 
   }
