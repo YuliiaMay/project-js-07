@@ -9,30 +9,37 @@ svg {
 .calendar_box {
 	display: block;
 	display: flex;
-	margin-right: 52px;
-	padding-top: 35px;
-	padding-bottom: 60px;
-	align-items:baseline
+	margin-right: 36px;	
+	align-items:baseline;
+
+	// tablet
+	@media screen and (min-width: 768px) {
+		margin-right: 0;	
+	 }
+  
 }
+
 .calendar_input {
 	text-align: center;
-	width: 151px;
+	width: 149px;
 	height: 31px;
+	background: rgba(0, 0, 0, 0);
 	border-radius: 20px;
 	border: 1px solid $input-border;
 	&:hover,
 	&:focus {
 		cursor: pointer;
+		outline: none;
 	}
 	
 	 // tablet
 	@media screen and (min-width: 768px) {
-		width: 168px;
+		width: 166px;
 	 }
 
 	 // desktop
 	 @media screen and (min-width: 1280px) {
-		width: 168px;
+		width: 166px;
 	 }
 
 }
@@ -40,7 +47,7 @@ svg {
 .calendar_input_is-activ {
 	background-color: $background-color-accent;
 	color: $line-color-light;
-	border: none;
+	border: 1px solid $background-color-accent;
 }
 
 .calendar_box_text {
@@ -98,24 +105,27 @@ svg {
 	position: absolute;
 	z-index: -1;
 	opacity: 0;
-	right: 0;
-	padding: 27px 16px 8px;
+	right: 0;	
 	width: 250px;
+	max-height: 0px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 	box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 	background: #F8F8F8;
 	
-	transform: translateY(-101%);
-	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: max-height 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), padding 500ms cubic-bezier(0.4, 0, 0.2, 1);
+	
  }
 
 .calendar_wrapper_open {
+	padding: 27px 16px 8px;
 	z-index: 1;
 	opacity: 1;
+	max-height: 300px;
 	
-	transform: translateY(-1);
+	
 }
+
  .year_box {	
 	display: flex;
 	gap: 5px;

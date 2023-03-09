@@ -12,7 +12,7 @@ const plusMonth = document.querySelector('.plus_month');
 const dayUl = document.querySelector('.days_of_month');
 const calendarInput = document.querySelector('.calendar_input');
 const calendarSvg = document.querySelector('.calendar_svg');
-
+const calendarSearchInput = document.querySelector('.calendar_serch_input')
 
 const months = ["January", "February", "March", "April", "May", "June", "July",
  "August", "September", "October", "November", "December"];
@@ -36,6 +36,15 @@ minusYear.addEventListener('click', onMinusYear);
 plusYear.addEventListener('click', onPlusYear);
 minusMonth.addEventListener('click', onMinusMonth);
 plusMonth.addEventListener('click', onPlusMonth);
+calendarInput.addEventListener('click', onOpenCalendar);
+document.addEventListener('click', (e) => {
+	const withinBoundaries = e.composedPath().includes(calendarSearchInput);
+
+if ( ! withinBoundaries ) {
+	onCloseCalendar();
+}
+})
+
 
 function onOpenCalendar() {
 	calendarSvg.classList.add('calendar_svg_is-activ');
@@ -51,6 +60,11 @@ function onCloseCalendar() {
 	closeCalendar.classList.add('is-hidden_open-close_svg');
 	openCalendar.classList.remove('is-hidden_open-close_svg');
 	calendarWrepper.classList.remove('calendar_wrapper_open');
+
+}
+
+function onCloseCalendarClickOutside() {
+	
 }
 
 function renderYear() {
@@ -188,11 +202,8 @@ function onClick(e) {
 	calendarYearValue = yearScrin.textContent;
 	calendarInput.value = `${calendarLiValue}/${calendarMonthValue}/${calendarYearValue}`;
 	liClass.classList.add('is-active_day');
-	calendarSvg.classList.remove('calendar_svg_is-activ');
-	calendarInput.classList.remove('calendar_input_is-activ');
-	closeCalendar.classList.add('is-hidden_open-close_svg');
-	openCalendar.classList.remove('is-hidden_open-close_svg');
-	calendarWrepper.classList.remove('calendar_wrapper_open');	
+
+	onCloseCalendar()	
 }
 
 function addLeadingZero(value) {
