@@ -1,5 +1,7 @@
 let changeThemeToggle = document.querySelector('.switch__input')
 
+
+
 changeThemeToggle.addEventListener('click', function () {
     let theme = this.dataset.theme;
     if(theme === 'dark' || theme === null){
@@ -11,6 +13,9 @@ changeThemeToggle.addEventListener('click', function () {
     document.getElementById('span-dark').classList.remove(`theme-switch__dark-on-${theme}`);
     document.querySelector('.search__input').classList.remove(`search__input-theme-${theme}`);
     document.querySelector('.search__btn').classList.remove(`search__btn-${theme}`);
+    if(document.getElementsByClassName('calendar_input').length){
+        document.querySelector('.calendar_input').classList.remove(`calendar_input__border-${theme}`);
+      }
         theme = 'light'
     document.getElementById('swith_label').classList.add(`switch-${theme}`);
     document.getElementById('switch_slider').classList.add(`switch__slider-${theme}`);
@@ -19,7 +24,10 @@ changeThemeToggle.addEventListener('click', function () {
     document.getElementById('span-light').classList.add(`theme-switch__light-on-${theme}`);
     document.getElementById('span-dark').classList.add(`theme-switch__dark-on-${theme}`);
     document.querySelector('.search__input').classList.add(`search__input-theme-${theme}`);
-    document.querySelector('.search__btn').classList.add(`search__btn-${theme}`);    
+    document.querySelector('.search__btn').classList.add(`search__btn-${theme}`);
+    if(document.getElementsByClassName('calendar_input').length){
+        document.querySelector('.calendar_input').classList.add(`calendar_input__border-${theme}`);
+      }
     } else if (theme === 'light') {
     document.getElementById('swith_label').classList.remove(`switch-${theme}`);
     document.getElementById('switch_slider').classList.remove(`switch__slider-${theme}`);
@@ -28,7 +36,10 @@ changeThemeToggle.addEventListener('click', function () {
     document.getElementById('span-light').classList.remove(`theme-switch__light-on-${theme}`);
     document.getElementById('span-dark').classList.remove(`theme-switch__dark-on-${theme}`);
     document.querySelector('.search__input').classList.remove(`search__input-theme-${theme}`);
-    document.querySelector('.search__btn').classList.remove(`search__btn-${theme}`); 
+    document.querySelector('.search__btn').classList.remove(`search__btn-${theme}`);
+    if(document.getElementsByClassName('calendar_input').length){
+        document.querySelector('.calendar_input').classList.remove(`calendar_input__border-${theme}`);
+      }
         theme = 'dark'
     document.getElementById('swith_label').classList.add(`switch-${theme}`);
     document.getElementById('switch_slider').classList.add(`switch__slider-${theme}`);
@@ -37,7 +48,10 @@ changeThemeToggle.addEventListener('click', function () {
     document.getElementById('span-light').classList.add(`theme-switch__light-on-${theme}`);
     document.getElementById('span-dark').classList.add(`theme-switch__dark-on-${theme}`);
     document.querySelector('.search__input').classList.add(`search__input-theme-${theme}`);
-    document.querySelector('.search__btn').classList.add(`search__btn-${theme}`); 
+    document.querySelector('.search__btn').classList.add(`search__btn-${theme}`);
+    if(document.getElementsByClassName('calendar_input').length){
+        document.querySelector('.calendar_input').classList.add(`calendar_input__border-${theme}`);
+      }
     } 
     changeTheme(theme);  
 
@@ -59,6 +73,9 @@ if(activeTheme === null || activeTheme === 'light') {
     document.getElementById('span-dark').classList.add(`theme-switch__dark-on-light`);
     document.querySelector('.search__input').classList.add(`search__input-theme-light`);
     document.querySelector('.search__btn').classList.add(`search__btn-light`)
+    if(document.getElementsByClassName('calendar_input').length){
+        document.querySelector('.calendar_input').classList.add(`calendar_input__border-light`);
+      }
 } else if (activeTheme === 'dark') {
     changeTheme('dark');
     document.getElementById('swith_label').classList.add(`switch-dark`);
@@ -68,6 +85,16 @@ if(activeTheme === null || activeTheme === 'light') {
     document.getElementById('span-dark').classList.add(`theme-switch__dark-on-dark`);
     document.querySelector('.search__input').classList.add(`search__input-theme-dark`);
     document.querySelector('.search__btn').classList.add(`search__btn-dark`);
+    if(document.getElementsByClassName('calendar_input').length){
+        document.querySelector('.calendar_input').classList.add(`calendar_input__border-light`);
+      }
 
     changeThemeToggle.setAttribute('checked','');
+}
+
+  if (document.getElementsByClassName('calendar_input').length) {
+    console.log('11111111');
+}
+else {
+    console.log('22222222');
 }
