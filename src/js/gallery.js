@@ -12,6 +12,7 @@ const iconPath = new URL('../images/icons.svg', import.meta.url);
 const newsContainer = document.querySelector('.news__container');
 let card = [];
 
+
 // async function fetchPopularNews() {
 //   try {
 //     let dataNews = await axios.get(POPULAR_NEWS_URL);
@@ -45,6 +46,7 @@ const objKeys = {
   published_date: ['published_date', 'pub_date', 'pub_date'],
   url: ['url', 'web_url', 'url'],
   section: ['section', 'section_name', 'section_name'],
+  day: ['day']
 };
 
 function createObj(response) {
@@ -81,13 +83,13 @@ function createObj(response) {
 }
 //!=====================================================
 
-function fetchNews(dataNewsArr, newsContainer) {
+function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
   card = [];
   const dataArray = getDataFromLocalStorage('news');
   const arrayId = dataArray.map(({ id }) => id);
 
   card = dataNewsArr.map(
-    ({ id, media, source, title, abstract, published_date, section }) => {
+    ({ id, media, source, title, abstract, published_date, section, url }) => {
       return [
         `<div class="card" data-id="${id}">
                 <div class="wrap__img">
@@ -116,7 +118,7 @@ function fetchNews(dataNewsArr, newsContainer) {
                 </div>
                 <div class="card__footer">
                   <span class="card__date">${published_date}</span>
-                  <a class="card__ref" target="_blank"
+                  <a class="card__ref" target="_blank" href="${url}"
                   rel="noreferrer noopener">Read more</a>
                 </div>
                 </div>
@@ -125,7 +127,7 @@ function fetchNews(dataNewsArr, newsContainer) {
                 <div class="read visually-hidden">
                   <span class="read__main">Already read</span>
                   <svg class="read__main-icon">
-                      <use class="icon" href="${iconPath}#done""></use>
+                      <use class="icon" href="${iconPath}#done"></use>
                   </svg>
                 </div>                
               </div>`,
@@ -133,10 +135,15 @@ function fetchNews(dataNewsArr, newsContainer) {
     }
   );
 
+
   // .join('');
-  for (let i = 0; i < perPage && i < card.length; i++) {
-    newsContainer.insertAdjacentHTML('beforeend', card[i]);
+  if (isTrue) {
+    for (let i = 0; i < perPage && i < card.length; i++) {
+      newsContainer.insertAdjacentHTML('beforeend', card[i]);
+    }
   }
+  
+  return card;
 }
 
 function renderCards(page, perPage) {
