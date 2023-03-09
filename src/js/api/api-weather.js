@@ -44,6 +44,8 @@ function getWeatherData(data) {
   const date = format(Date.now(), 'dd MMM yyyy');
   const day = format(Date.now(), 'iii');
 
+  const locationIcon = '../icons.adfc4680.svg#location';
+
   const weatherSect = `
 <div class="weather__block">
 <div class="weather__header">
@@ -52,7 +54,7 @@ function getWeatherData(data) {
   <span class="weather__status">${weatherStatus}</span>
   <div class="weather__location">
   <svg class="geo_svg">
-                    <use class="loco_logo" href="../icons.adfc4680.svg#location"></use>
+                    <use class="loco_logo" href="${locationIcon}"></use>
                 </svg>
     <p class="weather__city">${location}</p>
   </div>
