@@ -183,7 +183,7 @@
 
 .body__bg-dark{
   background-color: $background-color-dark;
-  
+  color: $gray-text-color;
 }
 
 .font__theme-light{
@@ -202,7 +202,7 @@
 }
 
 .search__input-theme-dark{
-  border: 1px solid $gray-text-color;
+  border: 1px solid $line-color-light;
   background: $background-color-dark; 
 }
 .search__btn-light{
@@ -211,4 +211,12 @@
 
 .search__btn-dark{
   fill: $gray-text-color;
+}
+
+.calendar_input__border-light{
+  border: 1px solid $input-border;
+}
+
+.calendar_input__border-dark{
+  border: 1px solid $line-color-light;
 }
