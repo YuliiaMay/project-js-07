@@ -52,7 +52,7 @@ function getWeatherData(data) {
   <span class="weather__status">${weatherStatus}</span>
   <div class="weather__location">
   <svg class="geo_svg">
-                    <use class="loco_logo" href="/icons.adfc4680.svg#location"></use>
+                    <use class="loco_logo" href="../icons.adfc4680.svg#location"></use>
                 </svg>
     <p class="weather__city">${location}</p>
   </div>
