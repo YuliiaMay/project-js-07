@@ -13,7 +13,16 @@ function getPerPage() {
     return (perPage = 7);
   }
 }
+function getVisiblePages() {
+  let visiblePages;
+  if (window.matchMedia('(max-width: 767.98px)').matches) {
+    return (visiblePages = 1);
+  } else if (window.matchMedia('(min-width: 768px)').matches) {
+    return (visiblePages = 3);
+  }
+}
 let perPage = getPerPage();
+let visiblePages = getVisiblePages();
 
 async function paginate(fetchNews, countArticles = 30) {
   await fetchNews();
@@ -22,7 +31,7 @@ async function paginate(fetchNews, countArticles = 30) {
     totalItems: countArticles,
 
     itemsPerPage: perPage,
-    visiblePages: 3,
+    visiblePages: visiblePages,
     page: 1,
     template: {
       page: `<a href="#" class="tui-page-btn">{{page}}</a>`,
