@@ -1,6 +1,5 @@
 import SearchNewsApi from './news-service';
 
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createObj, fetchNews } from './gallery';
 import { paginate } from './main/pagination';
 
