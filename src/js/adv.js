@@ -27,7 +27,7 @@ function onhideBanner(event) {
     event.target.classList.contains('banner__button') ||
     event.target.classList.contains('banner__button-cross_icon') ||
     event.target.classList.contains('banner__button-use_icon') ||
-    event.target.classList.contains('banner__image')
+    event.target.classList.contains('banner__button-link')
 
   ) {
     banner.classList.add('banner_hide');
