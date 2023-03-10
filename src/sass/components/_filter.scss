@@ -8,6 +8,7 @@
 }
 
 .class-filter {
+  cursor: pointer;
   color: $blue-text-color;
 
   font-family: $main-text-font;
@@ -121,4 +122,3 @@ select.class-filter.active {
 }
 
 // -----------------------------
-

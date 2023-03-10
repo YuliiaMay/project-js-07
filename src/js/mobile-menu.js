@@ -25,6 +25,9 @@ function onShowForm() {
       ? 'disableBodyScroll'
       : 'enableBodyScroll';
     bodyScrollLock[scrollLockMethod](document.body);
+    if(!document.querySelector('.mob-menu__container').classList.contains('is-open')){
+      location.reload();
+    }
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);
