@@ -9,7 +9,7 @@ if (galleryEl) galleryEl.addEventListener('click', onBtnFavoriteClick);
 
 export async function onBtnFavoriteClick(e) {
   try {
-    const btn = e.target.closest('.item-news__add-to-favorite');
+    const btn = e.target.closest('.card__btn');
     if (!btn) return;
 
     btn.classList.toggle('hidden-span');
