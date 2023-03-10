@@ -6,8 +6,7 @@ let perPage = getPerPage();
 let cards = [];
 
 const POPULAR_NEWS_URL = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=ctrAXxxlZTZKIuOVxETyJyELWuuMaa5A`;
-// const QUERY_NEWS_URL =
-//   'https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=20230301&end_date=20230306&page=0&facet=false&facet_fields=news_desk&facet_filter=false&q=cat&api-key=1CftshpIbKCwUhOxVLAbMSPcGc2N2XMQ';
+
 
 const iconPath = new URL('../images/icons.svg', import.meta.url);
 const newsContainer = document.querySelector('.news__container');
@@ -72,7 +71,7 @@ function createObj(response) {
 }
 //!=====================================================
 
-function fetchNews(dataNewsArr, newsContainer) {
+function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
   card = [];
   const dataArray = getDataFromLocalStorage('news');
   const arrayId = dataArray.map(({ id }) => id);
@@ -125,9 +124,13 @@ function fetchNews(dataNewsArr, newsContainer) {
     }
   );
 
-  for (let i = 0; i < perPage && i < card.length; i++) {
-    newsContainer.insertAdjacentHTML('beforeend', card[i]);
+  if (isTrue) {
+    for (let i = 0; i < perPage && i < card.length; i++) {
+      newsContainer.insertAdjacentHTML('beforeend', card[i]);
+    }
   }
+
+  return card;
 }
 
 function renderCards(page, perPage) {
@@ -143,6 +146,7 @@ function renderCards(page, perPage) {
     }
   }
 }
+
 function getCard() {
   return cards;
 }
