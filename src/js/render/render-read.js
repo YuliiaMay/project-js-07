@@ -8,17 +8,11 @@ const accContainer = document.querySelector('.acc__container');
 const emptyContainer = document.querySelector('.empty-response__container');
 
 
-
 let dates = [];
 let uniqAccordionDays = [];
-// let day = '';
-// let readCardsDay = [];
-// let sameDayRead = [];
-// let readMarkupCard = '';
 let readAcc = '';
 let readCardArr = [];
 let savedReadsCardArr = [];
-
 
 
 // ------------
@@ -34,15 +28,14 @@ function switchReadMarkup() {
       emptyContainer.classList.add('is-hidden');
       accContainer.classList.remove('is-hidden');
       renderReadNewsPage();
+      addReadPageEvents();
     }
   } catch (error) {
     console.log(error.message);
   }
 }
 
-
 function getReadMarkup() {
-
   savedReadsCardArr.map(card => {
     const newDay = card.day;
     dates.push(newDay);
@@ -58,28 +51,43 @@ function getReadMarkup() {
     readCardArr = savedReadsCardArr.filter(card => card.day === sortedDates[i]);
 
     const readCardsDay = readCardArr.map(card => createObj(card));
-    
     const readMarkup = fetchNews(readCardsDay, accContainer, false).join('');
 
-
     readAcc +=
-        `<div class="read-news__list">
-          <button class="read-news__btn js-read-news-btn">
+        `<div class="acc__gallery">
+          <button class="acc__day-btn js-read-card-open">
             <span>${sortedDates[i]}</span>
-            <svg><use href="${iconPath}#down"></use></svg>
+            <svg class="acc__btn-icon">
+              <use href="${iconPath}#pointer-down"></use></svg>
           </button>
-          <div class="news__lists">
+          <div class="news__one-day-read-card-list">
             ${readMarkup}
           </div>
           </div>`;
   }  
   
-  
   return readAcc;
-  }
-
-
+}
 
 function renderReadNewsPage() {
   accContainer.insertAdjacentHTML('afterbegin',  getReadMarkup())
+}
+
+
+
+function addReadPageEvents() {
+  const btnsReadMore = document.querySelectorAll('.js-read-card-open');
+  // const btnToFavorite = document.querySelectorAll('');
+
+  btnsReadMore.forEach(btn =>
+    btn.addEventListener('click', onDayNewsOpen)
+  );
+
+  function onDayNewsOpen(e) {
+    const btn = e.target;
+    console.log(btn);
+    btn.classList.toggle('is-open');
+  }
+
+  // btnToFavorite.addEventListener('click', );
 }

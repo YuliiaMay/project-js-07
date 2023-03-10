@@ -3,8 +3,8 @@
 
   <!-- користувач статті не читали -->
     <div class="undefined empty-response__container">
-      <p class="undefined__title">We haven’t found news from <br>this category</br></p>
-      <picture>
+      <p class="empty-response__title">You haven’t read the news yet</p>
+      <picture>                
         <source
           srcset="
             /src/images/error-image/error-1x-dekstop-min.png 1x,
@@ -30,7 +30,7 @@
           media="(mix-width: 480px)"
         />
         <img
-          class="undefined__img"
+          class="empty-response__img"
           src="/src/images/error-image/error-image.min.png"
           alt="undefined search img"
         />
@@ -38,17 +38,9 @@
     </div>
 
   <!-- є прочитані статті користувачем -->
-    <div class="acc__container is-hidden container">
-      <!-- блок статей прочитаних в один день -->
-      <div class="acc__day-block">
-        <div class="acc__item">
-          <!-- рендер кнопки -->
-        </div>
+    <div class="acc__container is-hidden">
+      <!-- ⬇️ рендер аккордиону із статтей ⬇️ -->
 
-        <div class="acc__gallery">
-          <!-- рендер карток -->
-        </div>
-      </div>
     </div>
 
   </div>

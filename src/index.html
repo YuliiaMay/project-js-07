@@ -18,32 +18,34 @@
   </head>
 
   <body>
-    <!-- ❗️❗️❗️ loader-->
-    <div id="page-preloader" class="preloader">
-      <div class="loader"></div>
+    <div class="wrapper">
+      <!-- ❗️❗️❗️ loader-->
+      <div id="page-preloader" class="preloader">
+        <div class="loader"></div>
+      </div>
+
+      <!-- ❗️❗️❗️ header -->
+
+      <include src="./partials/header.html"></include>
+
+      <main>
+        <!-- ❗️❗️❗️ filter + calendar -->
+        <include src="./partials/filter.html"></include>
+        <include src="./partials/empty-response.html"></include>
+        <!-- ❗️❗️❗️ gallery -->
+        <include src="./partials/gallery-page.html"></include>
+        <!-- ❗️❗️❗️ pagination -->
+        <include src="./partials/pagination.html"></include>
+      </main>
+
+      <!-- ❗️❗️❗️ Вадим Шабанов -->
+      <include src="./partials/footer.html"></include>
+
+      <!-- ❗️❗️❗️ advertisement -->
+      <include src="./partials/adv.html"></include>
+      <!-- ❗️❗️❗️ mobile-menu-content -->
+      <include src="./partials/mobile-menu.html"></include>
     </div>
-
-    <!-- ❗️❗️❗️ Марія -->
-
-    <include src="./partials/header.html"></include>
-
-    <main>
-      <!-- ❗️❗️❗️ Олександр -->
-      <include src="./partials/filter.html"></include>
-      <include src="./partials/empty-response.html"></include>
-      <!-- ❗️❗️❗️ Віталій -->
-      <include src="./partials/gallery-page.html"></include>
-      <!-- ❗️❗️❗️ Ігор -->
-      <include src="./partials/pagination.html"></include>
-    </main>
-
-    <!-- ❗️❗️❗️ Вадим Шабанов -->
-    <include src="./partials/footer.html"></include>
-
-    <!-- ❗️❗️❗️ advertisement -->
-    <include src="./partials/adv.html"></include>
-    <!-- ❗️❗️❗️ mobile-menu-content -->
-    <include src="./partials/mobile-menu.html"></include>
 
     <!-- ❗️❗️❗️ scripts -->
     <script
@@ -53,7 +55,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- <script src="./js/mobile-menu.js" type="module" defer></script> -->
+
     <script type="module" src="./index.js"></script>
   </body>
 </html>

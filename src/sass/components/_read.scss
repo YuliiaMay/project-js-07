@@ -1,16 +1,20 @@
-.read__section-page {
-  padding: 40px 0;
+.read__container {
+  padding-top: 40px;
+  padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    padding: 48px 0;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 60px 0;
+    padding-top: 60px;
+    padding-bottom: 120px;
+
   }
 }
 
-.undefined {
+.empty-response__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,12 +26,11 @@
   }
 
   &__title {
-    font-family: Manrope;
+    font-family: $main-text-font;
     font-weight: 700;
     text-align: center;
     font-size: 20px;
     padding-bottom: 40px;
-    /* color: #000; */
 
     @media screen and (min-width: 768px) {
       line-height: 1.4;
@@ -49,124 +52,134 @@
 }
 
 
+
 .acc__container {
-  padding-top: 60px;
-  padding-bottom: 210px;
+  position: relative;
 }
 
-// .acc-item {
-//   // background-color: #eee;
-//   // color: #444;
-//   cursor: pointer;
-//   padding: 18px;
-//   width: 100%;
-//   border: none;
-//   text-align: left;
-//   outline: none;
-//   font-size: 15px;
-//   transition: 0.4s;
-// }
 
-.acc-item {
-  background-color: #fff;
-  
-  border-bottom: 1px solid #929292;
-  cursor: pointer;
+.acc__gallery:not(:last-child) {
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 48px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 48px;
+  }
+}
+
+
+.acc__btn-icon {
+  width: 9px;
+  height: 14px;
+}
+
+.acc__day-btn {
   width: 100%;
-  height: 33px;
-  
-  outline: none;
-  font-size: 14px;
-  font-weight: 400;
-  transition: 0.4s;
-  /*  властивості переходу  */
-  transition-property: border-top;
+  display: flex;
+  gap: 12px;
+  border: none;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $read-btn-bottom-border;
+  align-items: center;
+  font-size: 16px;
+  line-height: calc(24 / 14);
+  background-color: transparent;
+
+    /*  властивості переходу  */
+  transition-property: border-bottom;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing-function;
-}
 
 
-.acc__date-btn {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  text-align: left;
-
-
-    &:hover,
-    &:focus {
-      border-bottom: 2px solid #4340f68f;  
+    &:hover {
+      border-bottom: 2px solid #4440f6;
     }
+
+
+
+  svg {
+    width: 19px;
+    height: 11px;
+
+    /*  властивості переходу  */
+    transition: transform 300ms ease-in-out;
+  }
+
+
+  &.is-open {
+    border-bottom: 2px solid #4440f6;
+
+    svg {
+      transform: rotate(180deg);
+      fill: #4440f6;
+    }
+  }
 }
 
-// .active, .acc__date-btn:hover {
-//     border-bottom: 2px solid #4340f68f;
-// }
-
-// .active, .acc__date-btn:focus {
-//     border-bottom: 2px solid #4340f68f;
-// }
 
 
-.acc__gallery {
+
+
+.acc__day-btn + .news__one-day-read-card-list {
+  position: absolute;
+  top: 100%;
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  padding-top: 28px;
+  width: 100%;
+
+  /*  властивості переходу  */
+  transform: translateY(-8%);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out,
+  visibility 300ms ease-in-out;
+  transition: top center;
+
+
+  @media screen and (min-width: 768px) {
+    padding-top: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+  }
+}
+
+
+.news__one-day-read-card-list {
   display: none;
-  overflow: hidden;
-
-
 }
 
+.acc__day-btn.is-open + .news__one-day-read-card-list {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 
-.active .acc__gallery {
+  /*  властивості переходу  */
+  transform: translateY(0);
+
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding-top: 40px;
-  padding-bottom: 60px;
+  flex-direction: column;
+  gap: 28px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+    gap: 32px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
-
-.acc__card {
-  max-width: calc((100% - 2 * 30px) / 3);
-}
-
-
-
-
-
-
-// .accordion__read-list {
-//     padding: 0 18px;
-//     display: none;
-//     background-color: white;
-//     overflow: hidden;
-// }
-
-
-// .accordion {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .accordion-item {
-//   border-radius: 5px;
-//   margin-bottom: 10px;
-// }
-
-// .accordion-header {
-//   padding: 10px;
-//   font-weight: bold;
-//   cursor: pointer;
-// }
-
-// .accordion-content {
-//   padding: 10px;
-//   display: none;
-// }
-
-// .accordion-header.active {
-//   background-color: #ddd;
-// }
-
-// .accordion-content.active {
-//   display: block;
-// }
