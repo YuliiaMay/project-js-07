@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { format } from 'date-fns';
+
+
 const weatherSection = document.querySelector('.news__container--weather');
 
 let CURRENT_CITY = null;
@@ -44,7 +46,7 @@ function getWeatherData(data) {
   const date = format(Date.now(), 'dd MMM yyyy');
   const day = format(Date.now(), 'iii');
 
-  const locationIcon = '../images/icons.svg#location';
+  const iconPath =  new URL('/src/images/icons.svg', import.meta.url);
 
   const weatherSect = `
 <div class="weather__block">
@@ -54,7 +56,7 @@ function getWeatherData(data) {
   <span class="weather__status">${weatherStatus}</span>
   <div class="weather__location">
   <svg class="geo_svg">
-                    <use class="loco_logo" href="${locationIcon}"></use>
+                    <use class="loco_logo" href="${iconPath}#location"></use>
                 </svg>
     <p class="weather__city">${location}</p>
   </div>

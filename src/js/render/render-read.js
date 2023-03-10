@@ -85,7 +85,6 @@ function addReadPageEvents() {
 
   function onDayNewsOpen(e) {
     const btn = e.target;
-    console.log(btn);
     btn.classList.toggle('is-open');
   }
 

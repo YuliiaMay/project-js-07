@@ -14,6 +14,9 @@ async function onReadMoreClick(e) {
     return;
   }
 
+
+
+
   const uniqReadCardsArr = getDataFromLocalStorage(READ_NEWS_KEY);
 
   const cardId = e.target.closest('.card').dataset.id;
@@ -23,18 +26,23 @@ async function onReadMoreClick(e) {
   const date = new Date();
   const currentDate = date.toLocaleString().slice(0, 10);
 
-  const uniqPopReadCard = readData.find(
+  const uniqReadCard = readData.find(
     ({ id }) => String(id) === String(cardId)
   );
 
-  uniqPopReadCard['day'] = currentDate;
+  uniqReadCard['day'] = currentDate;
 
   if (
     uniqReadCardsArr.every(
-      uniqPopReadCard => String(cardId) !== String(uniqPopReadCard.id)
+      uniqReadCard => String(cardId) !== String(uniqReadCard.id)
     )
   ) {
-    uniqReadCardsArr.push(uniqPopReadCard);
+    uniqReadCardsArr.push(uniqReadCard);
     setDataToLocalStorage(READ_NEWS_KEY, uniqReadCardsArr);
+
+    const tagAlreadyRead = document.querySelector('.read__already-read');
+    tagAlreadyRead.classList.remove('visually-hidden');
+    
+
   }
 }

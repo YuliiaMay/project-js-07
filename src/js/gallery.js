@@ -78,7 +78,7 @@ function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
 
   cards = dataNewsArr.map(card => card);
   card = dataNewsArr.map(
-    ({ id, media, source, title, abstract, published_date, section }) => {
+    ({ id, media, source, title, abstract, published_date, section, url }) => {
       return [
         `<div class="card" data-id="${id}">
                 <div class="wrap__img">
@@ -107,18 +107,19 @@ function fetchNews(dataNewsArr, newsContainer, isTrue = true) {
                 </div>
                 <div class="card__footer">
                   <span class="card__date">${published_date}</span>
-                  <a class="card__ref" target="_blank"
+                  <a class="card__ref" href="${url}" target="_blank"
                   rel="noreferrer noopener">Read more</a>
                 </div>
                 </div>
                 <div class="categories">${section}</div>
 
-                <div class="read visually-hidden">
+                <div class="read__already-read visually-hidden">
                   <span class="read__main">Already read</span>
                   <svg class="read__main-icon">
                       <use class="icon" href="${iconPath}#done""></use>
                   </svg>
-                </div>                
+                </div>
+                <div class="read__have-read visually-hidden">Have read</div>                
               </div>`,
       ];
     }
