@@ -44,7 +44,7 @@ function getWeatherData(data) {
   const date = format(Date.now(), 'dd MMM yyyy');
   const day = format(Date.now(), 'iii');
 
-  const locationIcon = '../icons.adfc4680.svg#location';
+  const locationIcon = '../images/icons.svg#location';
 
   const weatherSect = `
 <div class="weather__block">
