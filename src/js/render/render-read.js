@@ -15,7 +15,8 @@ let uniqAccordionDays = [];
 // let readCardsDay = [];
 // let sameDayRead = [];
 // let readMarkupCard = '';
-  let readAcc = '';
+let readAcc = '';
+let readCardArr = [];
 let savedReadsCardArr = [];
 
 
