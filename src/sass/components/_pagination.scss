@@ -15,7 +15,7 @@
 
   width: 33px;
   height: 31px;
-  background: #f4f4f4;
+  background-color: #f4f4f4;
   border: 1px solid #4440f6;
   border-radius: 2px;
 
@@ -53,7 +53,7 @@
 .pagination-number {
   width: 33px;
   height: 31px;
-  background: #f4f4f4;
+  background-color: #f4f4f4;
   border: 1px solid #4440f6;
   border-radius: 2px;
 }
@@ -77,9 +77,17 @@
 
   color: #111321;
 
-  background: #f4f4f4;
+  background-color: #f4f4f4;
   border: 1px solid #4440f6;
   border-radius: 2px;
+}
+
+.pagination-button,
+.fl-page-btn,
+.pn-page-btn,
+.pagination-number,
+.tui-page-btn {
+  transition: background-color 300ms, box-shadow 300ms;
 }
 
 .pn-page-btn {
@@ -96,12 +104,12 @@
 
 .pagination-number:hover,
 .pagination-button:not(.disabled):hover {
-  background: #fff;
+  background-color: #fff;
 }
 
 .pagination-number.active {
   color: #fff;
-  background: #4440f6;
+  background-color: #4440f6;
 }
 
 #pagination-numbers {
@@ -117,7 +125,8 @@
 .tui-page-btn:hover,
 .fl-page-btn:hover,
 .pn-page-btn:hover {
-  background-color: powderblue;
+  background-color: rgb(195, 240, 246);
+  box-shadow: 1px 1px 7px 1px #0004;
   font-weight: 600;
 }
 
