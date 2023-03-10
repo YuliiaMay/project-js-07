@@ -301,3 +301,24 @@
     height: 260px;
   }
 }
+
+
+.read__already-read {
+  position: absolute;
+  display: flex;
+  justify-content: baseline;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+  color: $have-read-tag;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(19 / 14);
+}
+
+
+.read__main-icon {
+  width: 18px;
+  height: 18px;
+  fill: $have-read-tag;
+}
