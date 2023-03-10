@@ -176,3 +176,6 @@ if(activeThemeMob=== null || activeThemeMob === 'light') {
 /* if(localStorage.getItem('theme') === 'dark'){
   document.querySelector('.mob-switch__input').setAttribute('checked','');
 } */
+/* if(!document.querySelector('.mob-menu__container').classList.contains('is-open')){
+    location.reload();
+  } */
