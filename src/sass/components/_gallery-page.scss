@@ -4,21 +4,15 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    gap: 28px;
+    gap: 30px;
   }
   @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: left;
     row-gap: 30px;
   }
   @media screen and (min-width: 1280px) {
-    gap: 32px;
     row-gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row-reverse;
   }
 }
 
