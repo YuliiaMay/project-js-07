@@ -1,14 +1,27 @@
+import {
+  onFilterCategoriesClick,
+  onFilterCategoriesChange,
+} from '../main/filter-category';
+
 const filtersContainer = document.querySelector('.category__filter-container');
 
 function renderButtons(category) {
   const { section, display_name } = category;
-  const button = `<button type="button" class="category__filter-btn" data-type="button" data-name="${display_name}" value="${display_name}">${display_name}</button>`;
 
-  filtersContainer.insertAdjacentHTML('beforeend', button);
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.classList.add('category__filter-btn');
+  button.value = display_name;
+  button.dataset.type = 'button';
+  button.dataset.name = display_name;
+  button.textContent = display_name;
+  button.addEventListener('click', onFilterCategoriesClick);
+
+  filtersContainer.insertAdjacentElement('beforeend', button);
 }
 
 function renderSelect(categories, className) {
-  let listOptions = [];
+  let listOptions = ['Others'];
 
   const listSelects = [];
 
@@ -17,6 +30,7 @@ function renderSelect(categories, className) {
   });
 
   const select = document.createElement('select');
+  select.addEventListener('change', onFilterCategoriesChange);
   listSelects.push(select);
   select.id = `select_${listSelects.length}`;
   select.name = 'selectName';
@@ -25,9 +39,15 @@ function renderSelect(categories, className) {
 
   for (let i = 0; i < listOptions.length; i++) {
     const option = document.createElement('option');
+    if (i === 0) {
+      option.disabled = true;
+      option.selected = true;
+      option.hidden = true;
+    }
     option.value = listOptions[i];
     option.text = listOptions[i];
     select.add(option);
   }
 }
+
 export { renderButtons, renderSelect };

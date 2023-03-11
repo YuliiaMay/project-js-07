@@ -183,7 +183,7 @@
 
 .body__bg-dark{
   background-color: $background-color-dark;
-  
+  color: $gray-text-color;
 }
 
 .font__theme-light{
@@ -202,7 +202,7 @@
 }
 
 .search__input-theme-dark{
-  border: 1px solid $gray-text-color;
+  border: 1px solid $line-color-light;
   background: $background-color-dark; 
 }
 .search__btn-light{
@@ -211,4 +211,130 @@
 
 .search__btn-dark{
   fill: $gray-text-color;
+}
+
+.calendar_input__border-light{
+  border: 1px solid $input-border;
+}
+
+.calendar_input__border-dark{
+  border: 1px solid $line-color-light;
+}
+//===========switcher mobile menu ============
+
+.mob-switch-light {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color:$gray-text-color;
+}
+.mob-switch-dark{
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color:$background-color-dark;
+}
+
+.mob-switch__input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.mob-switch__slider-light{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right:0;
+ 
+  border-radius: 20px;
+  background-color:$background-color-light;
+  box-shadow: 0 0 1px $background-color-accent; 
+  transition: .4s;
+}
+
+.mob-switch__slider-dark{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right:0;
+ 
+  border-radius: 20px;
+  background-color:$background-color-accent;
+  box-shadow: 0 0 1px $background-color-accent; 
+  transition: .4s;
+}
+
+
+
+.mob-switch__slider-light::before{
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  left: 2px;
+  bottom: 2px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: $light-switch-color;
+  transition: .4s;
+}
+
+.mob-switch__slider-dark::before{
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  left: 2px;
+  bottom: 2px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: $background-color-light;
+  transition: .4s;
+}
+
+
+.mob-switch__input:focus + .mob-switch__slider-light {
+  box-shadow: 0 0 1px $background-color-accent;
+}
+.mob-switch__input:focus + .mob-switch__slider-dark {
+  box-shadow: 0 0 1px $background-color-accent;
+}
+
+.mob-switch__input:checked + .mob-switch__slider-light{
+  background-color:$background-color-accent;
+}.mob-switch__input:checked + .mob-switch__slider-dark{
+  background-color:$background-color-accent;
+}
+.mob-switch__input:checked + .mob-switch__slider-light::before{
+  transform: translate(20px);
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+}
+.mob-switch__input:checked + .mob-switch__slider-dark::before{
+  transform: translate(20px);
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+}
+
+.mob-menu__burger-light{
+  color: $main-text-color;
+  background-color: #F4F4F4;
+}
+.mob-menu__burger-dark{
+  color: $gray-text-color;
+  background-color: $background-color-dark;
+}
+
+.mob-search-theme-light{
+  fill:#111321
+}
+.mob-search-theme-dark{
+  fill:#F4F4F4
 }

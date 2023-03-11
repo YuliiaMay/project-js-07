@@ -8,7 +8,7 @@ const errorRef = document.querySelector('.error');
 
 containerRef.addEventListener('click', onBtnFavoriteClick);
 containerRef.addEventListener('click', e => {
-  const btn = e.target.closest('.item-news__add-to-favorite');
+  const btn = e.target.closest('.card__btn');
   if (!btn) return;
   btn.closest('.card').remove();
   init();
