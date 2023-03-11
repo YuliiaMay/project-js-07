@@ -3,18 +3,17 @@
 }
 
 .header-container {
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	justify-content: space-between;
-	padding-top: 24px;
-	padding-bottom: 24px;
+  display: flex;
+  align-items: center;
 
-	@media screen and (min-width: 768px) {
-		gap: 24px;
-		padding-top: 28px;
-		padding-bottom: 28px;
-	}
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
 }
 
 .logo {
@@ -48,16 +47,25 @@
 }
 
 @media screen and (min-width: 768px) {
-	.navbar {
-		display: flex;
-		max-width: 305px;
-		width: 100%;
-	}
-	.nav__list {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-	}
+  .navbar {
+    display: flex;
+    max-width: 305px;
+    width: 100%;
+    margin-left: 48px;
+    margin-right: 32px;
+  }
+  .nav__list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    .navbar {
+      margin-left: 102px;
+      margin-right: 147px;
+    }
+  }
 }
 
 .nav__item {
@@ -197,7 +205,12 @@
 		display: flex !important;
 	}
 
-	@media screen and (min-width: 768px) {
-		display: flex !important;
-	}
+  @media screen and (min-width: 768px) {
+    display: flex !important;
+    margin-left: 25px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 147px;
+  }
 }
